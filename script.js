@@ -364,28 +364,13 @@ const wireReveals = () => {
   targets.forEach((target) => observer.observe(target));
 };
 
-const hydrateVisitorStats = async () => {
+const wireVisitorFallback = () => {
   const total = document.querySelector("[data-total-views]");
   const live = document.querySelector("[data-live-visitors]");
-  try {
-    const data = await new Promise((resolve, reject) => {
-      if (!window.iCount?.getStats) {
-        reject(new Error("Visitor counter unavailable"));
-        return;
-      }
-
-      const timeout = window.setTimeout(() => reject(new Error("Visitor counter timed out")), 5000);
-      window.iCount.getStats((stats) => {
-        window.clearTimeout(timeout);
-        resolve(stats);
-      });
-    });
-    total.textContent = new Intl.NumberFormat("en-GB").format(data.total?.pv || 0);
-    live.textContent = new Intl.NumberFormat("en-GB").format(data.realtime || 0);
-  } catch {
-    total.textContent = "Live";
-    live.textContent = "Now";
-  }
+  window.setTimeout(() => {
+    if (total.textContent.trim() === "...") total.textContent = "Live";
+    if (live.textContent.trim() === "...") live.textContent = "Now";
+  }, 6000);
 };
 
 const init = () => {
@@ -400,12 +385,16 @@ const init = () => {
   wireCopyButtons();
   wireNavigation();
   wireReveals();
-  hydrateVisitorStats();
+  wireVisitorFallback();
 
-  window.addEventListener("load", () => {
+  const scrollToInitialHash = () => {
     const target = window.location.hash && document.querySelector(window.location.hash);
-    if (target) window.requestAnimationFrame(() => target.scrollIntoView());
-  });
+    if (target) target.scrollIntoView();
+  };
+  if (window.location.hash) {
+    window.requestAnimationFrame(() => window.requestAnimationFrame(scrollToInitialHash));
+    window.addEventListener("load", scrollToInitialHash, { once: true });
+  }
 };
 
 init();
