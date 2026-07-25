@@ -77,11 +77,10 @@ const siteContent = {
   ],
   contribution: {
     game: "Anime Pulse",
-    role: "Systems, interface flow, tower defense setup, unit configuration, pricing, and gameplay feature contribution.",
+    role: "A Roblox experience currently under development, with systems, interface flow, tower defense setup, unit configuration, pricing, and gameplay features in progress.",
     year: "2026",
-    url: "https://www.roblox.com/games/78003352287107/Anime-Pulse",
     image: "assets/anime-pulse-banner.png",
-    tags: ["Live experience", "Systems", "UI", "Units"],
+    tags: ["In development", "Systems", "UI", "Units"],
   },
   pricing: [
     {
@@ -193,20 +192,19 @@ const renderContribution = () => {
   const item = siteContent.contribution;
   const root = document.querySelector("[data-contribution-list]");
   root.innerHTML = `
-    <article class="game-feature reveal">
-      <a class="game-visual" href="${item.url}" target="_blank" rel="noreferrer" aria-label="Open ${item.game} on Roblox">
-        <img src="${item.image}" alt="${item.game} Roblox game artwork" />
-        <span class="game-overlay"></span>
-        <span class="game-live"><i></i> Live on Roblox</span>
-        <span class="game-open" aria-hidden="true">&nearr;</span>
-      </a>
+      <article class="game-feature reveal">
+        <div class="game-visual" role="img" aria-label="${item.game} Roblox game artwork">
+          <img src="${item.image}" alt="${item.game} Roblox game artwork" />
+          <span class="game-overlay"></span>
+          <span class="game-live"><i></i> In development</span>
+        </div>
       <div class="game-copy">
         <div class="game-year">${item.year}</div>
         <p class="eyebrow">Roblox experience</p>
         <h3>${item.game}</h3>
         <p>${item.role}</p>
         <div class="tag-row">${item.tags.map(makeTag).join("")}</div>
-        <a class="button game-button" href="${item.url}" target="_blank" rel="noreferrer">Play on Roblox <span aria-hidden="true">&nearr;</span></a>
+          <span class="button game-button game-button-disabled">Under development</span>
       </div>
     </article>
   `;
@@ -366,9 +364,11 @@ const wireReveals = () => {
 
 const wireVisitorFallback = () => {
   const total = document.querySelector("[data-total-views]");
+  const today = document.querySelector("[data-today-views]");
   const live = document.querySelector("[data-live-visitors]");
   window.setTimeout(() => {
     if (total.textContent.trim() === "...") total.textContent = "Live";
+    if (today.textContent.trim() === "...") today.textContent = "Today";
     if (live.textContent.trim() === "...") live.textContent = "Now";
   }, 6000);
 };
