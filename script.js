@@ -368,12 +368,18 @@ const hydrateVisitorStats = async () => {
   const total = document.querySelector("[data-total-views]");
   const live = document.querySelector("[data-live-visitors]");
   try {
-    const response = await fetch(
-      "https://icount.kr/api.php?id=letriqyt.github.io",
-      { cache: "no-store" },
-    );
-    if (!response.ok) throw new Error("Visitor counter unavailable");
-    const data = await response.json();
+    const data = await new Promise((resolve, reject) => {
+      if (!window.iCount?.getStats) {
+        reject(new Error("Visitor counter unavailable"));
+        return;
+      }
+
+      const timeout = window.setTimeout(() => reject(new Error("Visitor counter timed out")), 5000);
+      window.iCount.getStats((stats) => {
+        window.clearTimeout(timeout);
+        resolve(stats);
+      });
+    });
     total.textContent = new Intl.NumberFormat("en-GB").format(data.total?.pv || 0);
     live.textContent = new Intl.NumberFormat("en-GB").format(data.realtime || 0);
   } catch {
