@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=meta5" />
+    <link rel="stylesheet" href="styles.css?v=meta6" />
   </head>
   <body>
     <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
@@ -62,7 +62,7 @@
           <div class="availability"><i></i><span>Open for focused commissions</span><small>Typical reply within 24 hours</small></div>
         </div>
 
-        <div class="code-window" aria-label="Luau code sample">
+        <div class="code-window" role="region" aria-label="Luau code sample">
           <div class="window-bar"><span></span><span></span><span></span><b>CombatService.lua</b><small>1 / 3</small></div>
           <pre><code><span class="code-muted">--!strict</span>
 
@@ -90,7 +90,7 @@
       <section class="stats" id="stats" aria-label="Studio statistics">
         <div class="section-shell stats-grid">
           <div class="stat stat-lead"><p class="section-label">// BY THE NUMBERS</p><strong>12+</strong><span><i></i> systems delivered</span></div>
-          <div class="stat"><strong>6</strong><span>Playable showcases</span></div>
+          <div class="stat"><strong>7</strong><span>Recorded showcases</span></div>
           <div class="stat"><strong>1:1</strong><span>Developer, direct contact</span></div>
           <div class="stat"><strong>24h</strong><span>Typical response time</span></div>
         </div>
@@ -119,12 +119,65 @@
         </div>
 
         <div class="work-grid">
-          <article class="project-card project-featured">
+          <article class="project-card project-card--wide">
+            <a class="project-media" href="https://youtu.be/V_LcqUnQkLE" target="_blank" rel="noreferrer" aria-label="Watch the Gold Empire connected systems showcase on YouTube">
+              <img src="https://i.ytimg.com/vi/V_LcqUnQkLE/hqdefault.jpg" alt="Gold Empire connected simulator systems gameplay preview" />
+              <span class="play"><i></i></span><small>Watch 1:30 showcase ↗</small>
+            </a>
+            <div class="project-body">
+              <p>ECONOMY · INVENTORY · WORLD SYSTEMS</p>
+              <h3>Connected Simulator Framework</h3>
+              <span>A complete player loop built as one cohesive system suite—not a collection of disconnected scripts.</span>
+              <ul class="project-merits">
+                <li>Guided tutorial and teleport flow</li>
+                <li>Placement validation with VFX feedback</li>
+                <li>Inventory, storage, pickup and selling pipeline</li>
+                <li>Price variation and connected economy states</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card">
             <a class="project-media" href="https://youtu.be/S0q7UuuPW18" target="_blank" rel="noreferrer" aria-label="Watch Anime Pulse Tower Defense on YouTube">
               <img src="https://i.ytimg.com/vi/S0q7UuuPW18/maxresdefault.jpg" alt="Anime Pulse Tower Defense gameplay preview" />
               <span class="play"><i></i></span><small>Watch build ↗</small>
             </a>
             <div class="project-body"><p>TOWER DEFENSE · UI · UNITS</p><h3>Anime Pulse Tower Defense</h3><span>Readable settings, unit configuration, and a polished player-facing setup flow.</span></div>
+          </article>
+
+          <article class="project-card project-card--wide">
+            <a class="project-media" href="https://youtu.be/lEorSYMsxoU" target="_blank" rel="noreferrer" aria-label="Watch the Hoverboard Obby game showcase on YouTube">
+              <img src="https://i.ytimg.com/vi/lEorSYMsxoU/hqdefault.jpg" alt="Obby But You're on a Hoverboard gameplay preview" />
+              <span class="play"><i></i></span><small>Watch 3:16 showcase ↗</small>
+            </a>
+            <div class="project-body">
+              <p>MOVEMENT · OBBY · PROGRESSION</p>
+              <h3>Hoverboard Obby Game Loop</h3>
+              <span>A fast, readable traversal experience built around responsive hoverboard control and repeatable progression.</span>
+              <ul class="project-merits">
+                <li>Speed-tuned hoverboard movement</li>
+                <li>Obby stages and checkpoint progression</li>
+                <li>Responsive HUD, settings and feedback</li>
+                <li>Cash, crates, trophies and board upgrades</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a class="project-media" href="https://youtu.be/C5oBTtvQghE" target="_blank" rel="noreferrer" aria-label="Watch the Keyboard ASMR system showcase on YouTube">
+              <img src="https://i.ytimg.com/vi/C5oBTtvQghE/hqdefault.jpg" alt="Keyboard ASMR input system gameplay preview" />
+              <span class="play"><i></i></span><small>Watch 0:33 showcase ↗</small>
+            </a>
+            <div class="project-body">
+              <p>INPUT · AUDIO · GAME FEEL</p>
+              <h3>Keyboard ASMR System</h3>
+              <span>A tactile input system that turns every key press into synchronized sound, motion and progression feedback.</span>
+              <ul class="project-merits project-merits--compact">
+                <li>Per-key ASMR response</li>
+                <li>Synced key animation</li>
+                <li>Live stage and HUD updates</li>
+              </ul>
+            </div>
           </article>
 
           <article class="project-card">
@@ -151,21 +204,6 @@
             <div class="project-body"><p>WEAPONS · AUTOMATIC · COMBAT</p><h3>AK Gun System</h3><span>Automatic weapon handling, reload feedback, and combat interface support.</span></div>
           </article>
 
-          <article class="project-card">
-            <a class="project-media" href="https://youtu.be/V1JkN4IotAs" target="_blank" rel="noreferrer" aria-label="Watch Placement System on YouTube">
-              <img src="https://i.ytimg.com/vi/V1JkN4IotAs/hqdefault.jpg" alt="Placement system gameplay preview" />
-              <span class="play"><i></i></span><small>Watch build ↗</small>
-            </a>
-            <div class="project-body"><p>PLACEMENT · BUILD MODE · UX</p><h3>Placement System</h3><span>Preview states, positioning feedback, validation, and controlled placement.</span></div>
-          </article>
-
-          <article class="project-card">
-            <a class="project-media" href="https://youtu.be/VK_yxDhgrRE" target="_blank" rel="noreferrer" aria-label="Watch Price Variation System on YouTube">
-              <img src="https://i.ytimg.com/vi/VK_yxDhgrRE/hqdefault.jpg" alt="Price variation system gameplay preview" />
-              <span class="play"><i></i></span><small>Watch build ↗</small>
-            </a>
-            <div class="project-body"><p>ECONOMY · PRICING · UI</p><h3>Price Variation</h3><span>Dynamic item values, clear purchase states, and useful economy feedback.</span></div>
-          </article>
         </div>
       </section>
 
@@ -176,9 +214,42 @@
           <article><span>02</span><h3>Server-aware architecture</h3><p>Core outcomes are validated with clean client-server boundaries in mind.</p></article>
           <article><span>03</span><h3>Clear handoff</h3><p>Milestones, scope, testing, and ownership are made clear before delivery.</p></article>
         </div>
-        <div class="section-shell featured-build">
-          <div class="featured-image"><img src="assets/anime-pulse-banner.png" alt="Anime Pulse Roblox experience artwork" /><span><i></i> IN DEVELOPMENT</span></div>
-          <div><p class="section-label">FEATURED CONTRIBUTION · 2026</p><h3>Anime Pulse</h3><p>A live Roblox experience with tower defense setup, unit configuration, interface flow, pricing, and connected gameplay systems in progress.</p><div class="tag-row"><span>Systems</span><span>UI</span><span>Units</span><span>Tower defense</span></div><a class="button button-primary" href="#contact">Build something like this <span>→</span></a></div>
+        <div class="section-shell experience-showcase">
+          <div class="experience-heading"><p class="section-label">// EXPERIENCE PORTFOLIO</p><h3>Playable work, with the details that matter.</h3><p>Live status and public performance data are shown where an experience is available on Roblox.</p></div>
+          <div class="experience-grid">
+            <article class="experience-card">
+              <div class="experience-media"><img src="assets/anime-pulse-banner.png" alt="Anime Pulse Roblox experience artwork" /><span class="experience-status"><i></i> IN DEVELOPMENT</span></div>
+              <div class="experience-content">
+                <p class="section-label">FEATURED CONTRIBUTION · 2026</p>
+                <h3>Anime Pulse</h3>
+                <p>A tower-defense development build focused on clean setup flows, unit configuration, interface clarity and connected gameplay systems.</p>
+                <div class="experience-metrics" role="group" aria-label="Anime Pulse project facts">
+                  <span><strong>DEV</strong><small>build status</small></span>
+                  <span><strong>4+</strong><small>core systems</small></span>
+                  <span><strong>TD</strong><small>gameplay loop</small></span>
+                </div>
+                <div class="tag-row"><span>Systems</span><span>UI</span><span>Units</span><span>Tower defense</span></div>
+                <div class="experience-actions"><a class="button button-primary" href="https://youtu.be/S0q7UuuPW18" target="_blank" rel="noreferrer">Watch showcase <span>↗</span></a><a class="button button-secondary" href="#contact">Discuss a build</a></div>
+              </div>
+            </article>
+
+            <article class="experience-card experience-card--live" data-roblox-experience="10537219160">
+              <div class="experience-media experience-media--icon"><img src="assets/hoverboard-obby-icon.png" alt="Obby But You're on a Hoverboard Roblox game icon" /><span class="experience-status"><i></i> LIVE ON ROBLOX</span></div>
+              <div class="experience-content">
+                <p class="section-label">PLAYABLE EXPERIENCE · 2026</p>
+                <h3>Obby But You're on a Hoverboard</h3>
+                <p>A speed-focused obstacle game with responsive hoverboard traversal, distinct worlds, progression rewards and a complete replayable loop.</p>
+                <div class="experience-metrics" role="group" aria-label="Live Roblox game statistics" aria-live="polite">
+                  <span><strong data-roblox-stat="playing">0</strong><small>playing now</small></span>
+                  <span><strong data-roblox-stat="visits">90</strong><small>total visits</small></span>
+                  <span><strong data-roblox-stat="maxPlayers">50</strong><small>server size</small></span>
+                </div>
+                <div class="tag-row"><span>Hoverboard movement</span><span>Obby progression</span><span>Rewards</span><span>Settings</span></div>
+                <div class="experience-actions"><a class="button button-primary" href="https://www.roblox.com/games/78558946831616/Obby-But-Youre-on-a-Hoverboard" target="_blank" rel="noreferrer">Play on Roblox <span>↗</span></a><a class="button button-secondary" href="https://youtu.be/lEorSYMsxoU" target="_blank" rel="noreferrer">Watch build</a></div>
+                <small class="live-note" data-roblox-updated>Roblox stats refresh when the page loads.</small>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -193,16 +264,16 @@
       </section>
 
       <section class="skills section-shell" id="skills">
-        <div class="section-heading"><div><p class="section-label">// SKILLS & TECH</p><h2>The toolkit behind the systems.</h2></div></div>
+        <div class="section-heading"><div><p class="section-label">// SKILLS &amp; TECH</p><h2>The toolkit behind the systems.</h2></div></div>
         <div class="skills-grid">
           <article><small>SCRIPTING</small><h3>Luau systems</h3><p>Modular gameplay architecture built to remain readable and extendable.</p></article>
           <article><small>FRONTEND</small><h3>GUI logic</h3><p>Responsive HUDs, menus, inventories, and player-facing flows.</p></article>
           <article><small>NETWORKING</small><h3>Client-server</h3><p>Clear replication boundaries and validation for important actions.</p></article>
           <article><small>GAMEPLAY</small><h3>Core loops</h3><p>Combat, placement, tower defense, progression, shops, and rewards.</p></article>
           <article><small>POLISH</small><h3>Player feedback</h3><p>Readable states, animation timing, effects hooks, and satisfying response.</p></article>
-          <article><small>DELIVERY</small><h3>Testing & handoff</h3><p>Focused QA, practical documentation, and support after delivery.</p></article>
+          <article><small>DELIVERY</small><h3>Testing &amp; handoff</h3><p>Focused QA, practical documentation, and support after delivery.</p></article>
         </div>
-        <div class="ticker" aria-label="Technical toolkit"><div><span>Luau</span><span>Roblox Studio</span><span>ModuleScripts</span><span>RemoteEvents</span><span>DataStores</span><span>OOP</span><span>UI Systems</span><span>Server Validation</span><span>Luau</span><span>Roblox Studio</span><span>ModuleScripts</span><span>RemoteEvents</span></div></div>
+        <div class="ticker" role="group" aria-label="Technical toolkit"><div><span>Luau</span><span>Roblox Studio</span><span>ModuleScripts</span><span>RemoteEvents</span><span>DataStores</span><span>OOP</span><span>UI Systems</span><span>Server Validation</span><span>Luau</span><span>Roblox Studio</span><span>ModuleScripts</span><span>RemoteEvents</span></div></div>
       </section>
 
       <section class="pricing section-shell" id="pricing">
@@ -243,8 +314,8 @@
 
     <footer class="site-footer section-shell"><a class="brand" href="#top"><span class="brand-dot"></span><span>Meta Development</span></a><p>Roblox systems that play as good as they look.</p><span>© <span data-current-year></span> Meta Development</span></footer>
 
-    <div class="accent-picker" aria-label="Theme accent"><button type="button" data-accent="violet" aria-label="Violet accent"></button><button type="button" data-accent="lime" aria-label="Lime accent"></button><button type="button" data-accent="teal" aria-label="Teal accent"></button><button type="button" data-accent="coral" aria-label="Coral accent"></button></div>
+    <div class="accent-picker" role="group" aria-label="Theme accent"><button type="button" data-accent="violet" aria-label="Violet accent"></button><button type="button" data-accent="lime" aria-label="Lime accent"></button><button type="button" data-accent="teal" aria-label="Teal accent"></button><button type="button" data-accent="coral" aria-label="Coral accent"></button></div>
     <div class="copy-toast" data-copy-toast role="status" aria-live="polite">Copied to clipboard</div>
-    <script src="script.js?v=meta5"></script>
+    <script src="script.js?v=meta6"></script>
   </body>
 </html>

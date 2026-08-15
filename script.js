@@ -74,4 +74,49 @@ document.querySelectorAll(".faq details").forEach((detail) => {
   });
 });
 
+const compactNumber = new Intl.NumberFormat("en", {
+  notation: "compact",
+  maximumFractionDigits: 1,
+});
+
+document.querySelectorAll("[data-roblox-experience]").forEach(async (card) => {
+  const universeId = card.dataset.robloxExperience;
+  const updateNote = card.querySelector("[data-roblox-updated]");
+
+  try {
+    const query = `universeIds=${encodeURIComponent(universeId)}`;
+    const endpoints = [
+      `https://games.roblox.com/v1/games?${query}`,
+      `https://games.roproxy.com/v1/games?${query}`,
+    ];
+    let response;
+
+    for (const endpoint of endpoints) {
+      try {
+        response = await fetch(endpoint);
+        if (response.ok) break;
+      } catch {}
+    }
+    if (!response?.ok) throw new Error("Roblox stats were unavailable");
+
+    const payload = await response.json();
+    const game = payload.data?.[0];
+    if (!game) throw new Error("Roblox game data was empty");
+
+    card.querySelectorAll("[data-roblox-stat]").forEach((element) => {
+      const value = game[element.dataset.robloxStat];
+      if (Number.isFinite(value)) {
+        element.textContent = compactNumber.format(value);
+        element.title = value.toLocaleString("en");
+      }
+    });
+
+    if (updateNote) {
+      updateNote.textContent = `Live Roblox stats · updated ${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
+    }
+  } catch {
+    if (updateNote) updateNote.textContent = "Last known Roblox stats shown; live refresh unavailable.";
+  }
+});
+
 document.querySelector("[data-current-year]").textContent = new Date().getFullYear();
