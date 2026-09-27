@@ -5,6 +5,9 @@
   const context = canvas.getContext('2d');
   const toggle = document.querySelector('[data-motion-toggle]');
   const label = document.querySelector('[data-motion-label]');
+  const cursorHalo = document.querySelector('[data-cursor-halo]');
+  const cursor = { x: 0, y: 0, targetX: 0, targetY: 0, visible: false };
+  const hideCursor = () => { cursor.visible = false; cursorHalo.classList.remove('is-visible'); };
   const hero = document.querySelector('.hero');
   const heroPanel = document.querySelector('.hero-showcase');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -89,6 +92,13 @@
     frame = 0;
     if (!running()) return;
     scrollDriver?.raf(now);
+    if (cursor.visible && finePointer.matches) {
+      const follow = 1 - Math.exp(-Math.min(now - (cursor.lastTime || now), 64) / 45);
+      cursor.x += (cursor.targetX - cursor.x) * follow;
+      cursor.y += (cursor.targetY - cursor.y) * follow;
+      cursorHalo.style.transform = `translate3d(${cursor.x}px, ${cursor.y}px, 0)`;
+    }
+    cursor.lastTime = now;
     const elapsed = now - lastFrame;
     if (elapsed >= 1000 / (compact.matches ? 24 : 30)) {
       phase += Math.min(elapsed, 70) * .00022;
@@ -157,6 +167,7 @@
     scrollFrame = 0;
     root.dataset.motion = reduced.matches ? 'reduced' : paused ? 'paused' : 'running';
     syncScrollDriver();
+    if (!running() || !finePointer.matches) hideCursor();
     toggle.hidden = false;
     toggle.disabled = reduced.matches;
     toggle.setAttribute('aria-pressed', String(paused || reduced.matches));
@@ -203,10 +214,26 @@
   }, { passive: true });
   window.addEventListener('pointermove', (event) => {
     if (!running() || !finePointer.matches || event.pointerType === 'touch') return;
+    if (event.target.closest('input, textarea, select, [contenteditable="true"]')) {
+      hideCursor();
+    } else {
+      cursor.targetX = event.clientX;
+      cursor.targetY = event.clientY;
+      if (!cursor.visible) {
+        cursor.x = event.clientX;
+        cursor.y = event.clientY;
+        cursorHalo.style.transform = `translate3d(${cursor.x}px, ${cursor.y}px, 0)`;
+      }
+      cursor.visible = true;
+      cursorHalo.classList.add('is-visible');
+      cursorHalo.classList.toggle('is-interactive', Boolean(event.target.closest('a, button, summary')));
+    }
     pointer.targetX = event.clientX / width;
     pointer.targetY = event.clientY / height;
   }, { passive: true });
+  window.addEventListener('blur', hideCursor);
   document.addEventListener('pointerleave', () => {
+    hideCursor();
     pointer.targetX = .7;
     pointer.targetY = .5;
   });
@@ -231,6 +258,7 @@
     } });
   });
   document.addEventListener('keydown', event => {
+    hideCursor();
     if (['PageDown', 'PageUp', 'Home', 'End', ' ', 'ArrowDown', 'ArrowUp', 'Tab'].includes(event.key)) {
       scrollDriver?.scrollTo(window.scrollY, { immediate: true });
     }
@@ -264,31 +292,10 @@
   document.addEventListener('meta:content-change', () => {
     scrollDriver?.resize();
     updateScroll();
-    if (!running()) return;
-    document.querySelectorAll('.project-card:not([hidden]) .project-body').forEach((body, index) => {
-      body.getAnimations().forEach(animation => animation.cancel());
-      body.animate([{ opacity: .4, translate: '0 12px' }, { opacity: 1, translate: '0 0' }], { duration: 380, delay: Math.min(index, 3) * 35, easing: 'ease-out' });
-    });
   });
 
-  // Visible by default. One-shot entrances never leave content waiting on a class.
+  // Reading content stays still and fully visible; only process borders track position.
   if ('IntersectionObserver' in window) {
-    const targets = [...document.querySelectorAll('.section-heading, .stat, .project-body, .about-visual, .about-copy, .proof-intro, .proof-grid article, .experience-heading, .experience-content, .process-grid article, .skills-grid article, .pricing-grid article, .faq > h2, .faq details, .contact-copy, .contact-form, .site-footer')];
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        observer.unobserve(entry.target);
-        if (!running()) return;
-        const index = targets.indexOf(entry.target);
-        entry.target.animate([
-          { opacity: .35, transform: 'translateY(22px)' },
-          { opacity: 1, transform: 'translateY(0)' },
-        ], { duration: 620, delay: (index % 3) * 55, easing: 'cubic-bezier(.2,.65,.25,1)' });
-      });
-    }, { threshold: .1, rootMargin: '0px 0px -30px 0px' });
-    targets.forEach((target) => {
-      if (target.getBoundingClientRect().top >= innerHeight) observer.observe(target);
-    });
     const steps = new IntersectionObserver((entries) => {
       entries.forEach(entry => entry.target.classList.toggle('is-current', entry.isIntersecting));
     }, { threshold: .65 });

@@ -37,20 +37,6 @@
       "data_truth": "Existing recorded demo destinations; no automatic playback"
     },
     {
-      "pattern_id": "custom-progressive-reveal",
-      "section": "all major sections including About, stats, FAQ, form and footer",
-      "purpose": "Give the content a clear entrance rhythm without delaying navigation",
-      "owner": "motion.js IntersectionObserver and Web Animations API",
-      "desktop": "One-shot 22px entrance, 620ms, stagger capped at 110ms; process borders highlight in view",
-      "mobile": "Same short entrances in ordinary vertical flow",
-      "reduced_motion": "Fully visible static content",
-      "fallback": "Default styles are visible; no opacity-zero class",
-      "cost": "low",
-      "continuous": false,
-      "cleanup": "Unobserve after first appearance; cancel animations on pause/preference/visibility change",
-      "data_truth": "No simulated results"
-    },
-    {
       "pattern_id": "lenis-wheel-interpolation",
       "section": "desktop page scroll",
       "purpose": "Smooth wheel steps while preserving their distance",
@@ -69,14 +55,28 @@
       "section": "About, experience, navigation and interactive cards",
       "purpose": "Make each major section responsive to scroll and interaction",
       "owner": "motion.js translate/CSS custom properties; independent from hover transforms",
-      "desktop": "Bounded image depth, section accent progress, current navigation and pointer lighting; short FAQ/filter transitions",
-      "mobile": "Static media geometry, tap/focus controls and progressive entrances",
+      "desktop": "Bounded image depth, section accent progress, current navigation and pointer lighting; short FAQ transitions; process border highlighting; no section or filter entrances",
+      "mobile": "Static media geometry and tap/focus controls; no entrances",
       "reduced_motion": "No spatial motion or pointer lighting; navigation remains functional",
       "fallback": "Visible semantic content",
       "cost": "low; not physically profiled",
       "continuous": false,
       "cleanup": "Reset media translation and cancel active animations when paused; pointer exit clears lighting",
       "data_truth": "No changing business claims or fabricated counters"
+    },
+    {
+      "pattern_id": "fine-pointer-halo",
+      "section": "viewport",
+      "purpose": "Subtle pointer feedback with stationary content",
+      "owner": "motion.js shared RAF; CSS ring expansion",
+      "desktop": "32px eased halo, expands around interactive controls, native cursor retained",
+      "mobile": "Hidden for touch/coarse pointers",
+      "reduced_motion": "Hidden; pause and keyboard also hide it",
+      "fallback": "Normal native cursor",
+      "cost": "One transform per active frame",
+      "cleanup": "Hidden on pointer exit, blur, pause, reduced motion, page suspension",
+      "continuous": true,
+      "data_truth": "Decorative only"
     }
   ],
   "checks": {

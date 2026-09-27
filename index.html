@@ -24,12 +24,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/vendor/lenis-1.3.26/lenis.css" />
-    <link rel="stylesheet" href="styles.css?v=meta11" />
+    <link rel="stylesheet" href="styles.css?v=meta12" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="ambient-scene" aria-hidden="true"><canvas data-ambient-canvas></canvas><div class="ambient-vignette"></div></div>
     <button class="motion-toggle" type="button" data-motion-toggle aria-label="Pause animations" aria-pressed="false" hidden><span class="motion-dot" aria-hidden="true"></span><span data-motion-label>Motion on</span></button>
+    <div class="cursor-halo" data-cursor-halo aria-hidden="true"></div>
+          <div class="portfolio-views" data-view-counter>
+            <span>Profile views</span>
+            <span data-view-status>View count requires JavaScript</span>
+            <img data-view-badge hidden alt="Total portfolio page views counted by Hits.sh" height="24" />
+            <details class="view-info"><summary aria-label="About the view count">i</summary><p>Approximate page views since this counter was added, not unique people. Reloads, caching and automated visits can affect the total. The counter makes a request to Hits.sh. <a href="https://hits.sh/metaa0.github.io/MetaDevelopment/" target="_blank" rel="noreferrer">View counter details ↗</a>.</p></details>
+          </div>
     <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 
     <header class="site-header" data-header>
@@ -65,18 +72,7 @@
             <a class="button button-secondary" href="#work">Explore the demos <span>↘</span></a>
           </div>
           <p class="cta-note">Projects from $600. Scope and price agreed before work starts.</p>
-          <div class="developer-card">
-            <img decoding="async" src="assets/meta-icon-v2.svg" width="44" height="44" alt="" />
-            <div><strong>One developer. Direct contact.</strong><span>Luau · Gameplay · UI systems</span></div>
-            <a href="#contact" aria-label="Contact Meta Development">↗</a>
-          </div>
-          <div class="portfolio-views" data-view-counter>
-            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
-            <span>Portfolio views</span>
-            <span data-view-status>View count requires JavaScript</span>
-            <img data-view-badge hidden alt="Total portfolio page views counted by Hits.sh" height="24" />
-            <details class="view-info"><summary aria-label="About the view count">i</summary><p>Approximate page views since this counter was added, not unique people. Reloads, caching and automated visits can affect the total. The counter makes a request to Hits.sh. <a href="https://hits.sh/metaa0.github.io/MetaDevelopment/" target="_blank" rel="noreferrer">View counter details ↗</a>.</p></details>
-          </div>
+
         </div>
 
         <div class="hero-showcase">
@@ -350,8 +346,8 @@
 
     <a class="mobile-quote" href="#contact">Get a project quote <span>↗</span></a>
     <div class="copy-toast" data-copy-toast role="status" aria-live="polite">Copied to clipboard</div>
-    <script src="script.js?v=meta11"></script>
+    <script src="script.js?v=meta12"></script>
     <script src="assets/vendor/lenis-1.3.26/lenis.min.js"></script>
-    <script src="motion.js?v=meta11"></script>
+    <script src="motion.js?v=meta12"></script>
   </body>
 </html>

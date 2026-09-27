@@ -28,7 +28,7 @@ The motion direction is an original violet signal grid: a gently warping Canvas 
 - [x] Repair mobile menu contrast, Escape handling and focus return.
 - [x] Keep mobile, keyboard, reduced-motion and JavaScript-disabled paths usable.
 - [x] Verify layout and functional paths in Chromium emulation.
-- [ ] Publish the changes and verify GitHub Pages; authorised by the user in the publishing follow-up.
+- [x] Publish the portfolio refresh and verify GitHub Pages on the configured gh-pages branch.
 - [ ] Verify an authorised real form submission and receipt with the owner.
 
 ## Claims and integrations
@@ -84,3 +84,11 @@ Pause, reduced motion, hidden documents and pagehide destroy the scroll instance
 Major section headers, stats, About media/text, proof cards, experience details, process, skills, pricing, FAQ, contact and footer now share short progressive entrances. About and experience images gain bounded desktop parallax. Each section has a subtle progress accent. Active navigation follows the current section, including when decorative motion is paused. Fine-pointer lighting on cards/forms is event-driven; FAQ answers and filter changes receive brief transitions. Motion preference/pause cancels these effects and retains all text and controls.
 
 Additional test: node scripts/scroll-qa.cjs. Chromium received a 600px wheel input; the recorded sample reached 370px during the early interpolation window and settled at 600px. Reverse wheel, header-safe anchor positioning and focus, About parallax, Page Down, nested textarea scrolling, back navigation, midpage refresh, pause/reduced-motion destruction, missing-library fallback and native touch configuration passed with no uncaught page errors. This is input-simulation evidence, not a physical mouse/trackpad or phone performance measurement. The regression exposed and fixed an anchor overshoot after Page Down by synchronising native scroll before the anchor animation.
+
+## Cursor and fixed corner views follow-up
+
+The user rejected pop-in entrances. Removed the section entrance observer and demo-filter body animations; content remains still and fully visible while the background, bounded image parallax, smooth scroll and interaction feedback continue. Added a 32px fine-pointer halo to the existing animation clock. It keeps the native pointer and expands over links/buttons without intercepting clicks. Hide it over form controls, on keyboard use, pointer exit, window blur, touch, pause and reduced motion.
+
+Removed the hero developer icon and One developer / Direct contact block. Moved the existing genuine page-view counter to a fixed bottom-right chip labelled Profile views, with its explanation retained. On small screens it sits above the quote CTA. The count still represents website page views, not Roblox profile views or unique visitors. Removed the eye icon as well.
+
+GitHub Pages publishes from gh-pages. The separate existing main-branch Actions workflow is blocked by the environment branch rule; do not loosen that rule. Publish with a normal fast-forward push to gh-pages and check the standard pages build and deployment job.
