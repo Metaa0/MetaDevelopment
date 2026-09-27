@@ -7,7 +7,11 @@
   const label = document.querySelector('[data-motion-label]');
   const cursorHalo = document.querySelector('[data-cursor-halo]');
   const cursor = { x: 0, y: 0, targetX: 0, targetY: 0, visible: false };
-  const hideCursor = () => { cursor.visible = false; cursorHalo.classList.remove('is-visible'); };
+  const hideCursor = () => {
+    cursor.visible = false;
+    cursorHalo.classList.remove('is-visible');
+    root.classList.remove('custom-cursor-active');
+  };
   const hero = document.querySelector('.hero');
   const heroPanel = document.querySelector('.hero-showcase');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -213,7 +217,8 @@
     if (!scrollFrame) scrollFrame = requestAnimationFrame(updateScroll);
   }, { passive: true });
   window.addEventListener('pointermove', (event) => {
-    if (!running() || !finePointer.matches || event.pointerType === 'touch') return;
+    if (event.pointerType === 'touch') { hideCursor(); return; }
+    if (!running() || !finePointer.matches) return;
     if (event.target.closest('input, textarea, select, [contenteditable="true"]')) {
       hideCursor();
     } else {
@@ -226,6 +231,7 @@
       }
       cursor.visible = true;
       cursorHalo.classList.add('is-visible');
+      root.classList.add('custom-cursor-active');
       cursorHalo.classList.toggle('is-interactive', Boolean(event.target.closest('a, button, summary')));
     }
     pointer.targetX = event.clientX / width;

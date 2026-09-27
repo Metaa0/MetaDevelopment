@@ -69,7 +69,7 @@
       "section": "viewport",
       "purpose": "Subtle pointer feedback with stationary content",
       "owner": "motion.js shared RAF; CSS ring expansion",
-      "desktop": "32px eased halo, expands around interactive controls, native cursor retained",
+      "desktop": "32px eased halo, expands around interactive controls, native cursor replaced while halo is visible; restored for form fields and fallback states",
       "mobile": "Hidden for touch/coarse pointers",
       "reduced_motion": "Hidden; pause and keyboard also hide it",
       "fallback": "Normal native cursor",

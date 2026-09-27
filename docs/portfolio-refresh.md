@@ -96,3 +96,7 @@ GitHub Pages publishes from gh-pages. The separate existing main-branch Actions 
 ## Anime Pulse featured-project follow-up
 
 The user requested more attention for Anime Pulse. It is now the default hero preview, with an explicitly labelled featured selector and Watch Anime Pulse link. The other four previews remain selectable. Its existing demo card moved from last to first and became a full-width split feature with larger artwork, clearer systems copy and a direct video CTA. No duplicate demo was added; the seven-card filters retain their existing counts. This is a presentation change, not a claim of measured click-through improvement. No pop-in entrances were reintroduced.
+
+## Native cursor visibility fix
+
+The custom halo now replaces the native pointer while running and visible, including over links/buttons. A root class is enabled only after a real fine-pointer movement positions the halo. Text fields, keyboard use, pause, reduced motion, touch, pointer exit and blur clear that class to restore the native cursor. CSS additionally gates hiding by fine pointer and no reduced-motion preference. Missing JavaScript leaves the native cursor available. Updated cursor QA checks computed cursor styles for these states.
