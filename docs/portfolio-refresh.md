@@ -92,3 +92,7 @@ The user rejected pop-in entrances. Removed the section entrance observer and de
 Removed the hero developer icon and One developer / Direct contact block. Moved the existing genuine page-view counter to a fixed bottom-right chip labelled Profile views, with its explanation retained. On small screens it sits above the quote CTA. The count still represents website page views, not Roblox profile views or unique visitors. Removed the eye icon as well.
 
 GitHub Pages publishes from gh-pages. The separate existing main-branch Actions workflow is blocked by the environment branch rule; do not loosen that rule. Publish with a normal fast-forward push to gh-pages and check the standard pages build and deployment job.
+
+## Anime Pulse featured-project follow-up
+
+The user requested more attention for Anime Pulse. It is now the default hero preview, with an explicitly labelled featured selector and Watch Anime Pulse link. The other four previews remain selectable. Its existing demo card moved from last to first and became a full-width split feature with larger artwork, clearer systems copy and a direct video CTA. No duplicate demo was added; the seven-card filters retain their existing counts. This is a presentation change, not a claim of measured click-through improvement. No pop-in entrances were reintroduced.

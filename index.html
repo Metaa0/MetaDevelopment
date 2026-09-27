@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/vendor/lenis-1.3.26/lenis.css" />
-    <link rel="stylesheet" href="styles.css?v=meta12" />
+    <link rel="stylesheet" href="styles.css?v=meta13" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -78,20 +78,21 @@
         <div class="hero-showcase">
           <div class="showcase-topline"><span>THE DEMO LAB</span><span>SELECT A SYSTEM ↓</span></div>
           <div class="showcase-selector" role="group" aria-label="Choose a featured demo" hidden data-showcase-controls>
-            <button type="button" data-showcase="simulator" aria-pressed="true">01 / Simulator</button>
+            <button type="button" class="showcase-featured" data-showcase="anime" aria-pressed="true">Featured / Anime Pulse <span aria-hidden="true">↗</span></button>
+            <button type="button" data-showcase="simulator" aria-pressed="false">01 / Simulator</button>
             <button type="button" data-showcase="combat" aria-pressed="false">02 / Combat</button>
             <button type="button" data-showcase="keyboard" aria-pressed="false">03 / Input &amp; audio</button>
             <button type="button" data-showcase="hoverboard" aria-pressed="false">04 / Movement</button>
           </div>
-          <a class="showcase-art" data-showcase-link href="https://youtu.be/V_LcqUnQkLE" target="_blank" rel="noreferrer" aria-label="Watch Connected Simulator Framework demo on YouTube">
-            <img data-showcase-image src="https://i.ytimg.com/vi/V_LcqUnQkLE/hqdefault.jpg" alt="Connected simulator systems gameplay demo" fetchpriority="high" />
-            <span class="showcase-art-label" data-showcase-label>RECORDED GAMEPLAY DEMO</span>
-            <span class="showcase-play"><span aria-hidden="true">▶</span> Watch the demo ↗</span>
+          <a class="showcase-art" data-showcase-link href="https://youtu.be/S0q7UuuPW18" target="_blank" rel="noreferrer" aria-label="Watch Anime Pulse Tower Defense showcase on YouTube">
+            <img data-showcase-image src="https://i.ytimg.com/vi/S0q7UuuPW18/maxresdefault.jpg" alt="Anime Pulse Tower Defense settings and player interface preview" fetchpriority="high" />
+            <span class="showcase-art-label" data-showcase-label>FEATURED / ANIME PULSE</span>
+            <span class="showcase-play"><span aria-hidden="true">▶</span> <span data-showcase-cta>Watch Anime Pulse ↗</span></span>
           </a>
           <div class="showcase-caption" aria-live="polite" aria-atomic="true">
-            <p class="section-label" data-showcase-category>ECONOMY · INVENTORY · WORLD SYSTEMS</p>
-            <h2 data-showcase-title>Connected Simulator Framework</h2>
-            <p data-showcase-description>Placement, inventory and a working economy connected into one player loop.</p>
+            <p class="section-label" data-showcase-category>TOWER DEFENSE · PLAYER UI · UNIT SYSTEMS</p>
+            <h2 data-showcase-title>Anime Pulse Tower Defense</h2>
+            <p data-showcase-description>Settings, unit configuration and player-facing interfaces. See the systems in action.</p>
           </div>
           <div class="showcase-footer"><span>Built in Studio. Shown in action.</span><a href="#work">Explore all 7 demos <span>↗</span></a></div>
         </div>
@@ -122,6 +123,25 @@
           <p data-demo-count role="status">Showing all 7 demos</p>
         </div>
         <div class="work-grid">
+          <article data-demo-category="systems" class="project-card project-card--featured" id="anime-pulse">
+            <a class="project-media" href="https://youtu.be/S0q7UuuPW18" target="_blank" rel="noreferrer" aria-label="Watch the Anime Pulse Tower Defense showcase on YouTube">
+              <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/S0q7UuuPW18/maxresdefault.jpg" alt="Anime Pulse Tower Defense settings and player interface preview" />
+              <span class="project-feature-label">FEATURED PROJECT</span>
+              <span class="play"><i></i></span><small>Watch Anime Pulse ↗</small>
+            </a>
+            <div class="project-body">
+              <p>TOWER DEFENSE · PLAYER UI · UNIT SYSTEMS</p>
+              <h3>Anime Pulse<br />Tower Defense</h3>
+              <span>A closer look at the player-facing systems behind Anime Pulse: readable settings, unit configuration and a polished setup flow.</span>
+              <ul class="project-merits project-merits--compact">
+                <li>Settings and player preferences</li>
+                <li>Unit configuration interfaces</li>
+                <li>Connected player-facing setup flow</li>
+              </ul>
+              <a class="button button-primary project-watch" href="https://youtu.be/S0q7UuuPW18" target="_blank" rel="noreferrer" aria-label="Watch Anime Pulse Tower Defense on YouTube">Watch Anime Pulse <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
           <article data-demo-category="systems" class="project-card project-card--wide">
             <a class="project-media" href="https://youtu.be/V_LcqUnQkLE" target="_blank" rel="noreferrer" aria-label="Watch the Gold Empire connected systems showcase on YouTube">
               <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/V_LcqUnQkLE/hqdefault.jpg" alt="Gold Empire connected simulator systems gameplay preview" />
@@ -199,13 +219,7 @@
             </div>
           </article>
 
-          <article data-demo-category="systems" class="project-card">
-            <a class="project-media" href="https://youtu.be/S0q7UuuPW18" target="_blank" rel="noreferrer" aria-label="Watch Anime Pulse Tower Defense on YouTube">
-              <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/S0q7UuuPW18/maxresdefault.jpg" alt="Anime Pulse Tower Defense gameplay preview" />
-              <span class="play"><i></i></span><small>Watch demo ↗</small>
-            </a>
-            <div class="project-body"><p>TOWER DEFENSE · UI · UNITS</p><h3>Anime Pulse Tower Defense</h3><span>Readable settings, unit configuration, and a polished player-facing setup flow.</span></div>
-          </article>
+
         </div>
       </section>
 
@@ -346,8 +360,8 @@
 
     <a class="mobile-quote" href="#contact">Get a project quote <span>↗</span></a>
     <div class="copy-toast" data-copy-toast role="status" aria-live="polite">Copied to clipboard</div>
-    <script src="script.js?v=meta12"></script>
+    <script src="script.js?v=meta13"></script>
     <script src="assets/vendor/lenis-1.3.26/lenis.min.js"></script>
-    <script src="motion.js?v=meta12"></script>
+    <script src="motion.js?v=meta13"></script>
   </body>
 </html>

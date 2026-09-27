@@ -409,3 +409,22 @@ html[data-motion="paused"] .interactive-surface::before, html[data-motion="reduc
 }
 @media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) { .cursor-halo { display: none; } }
 html[data-motion="paused"] .cursor-halo, html[data-motion="reduced"] .cursor-halo { display: none; }
+
+/* Anime Pulse gets the first featured position without hiding the other demos. */
+.showcase-selector .showcase-featured { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; color: var(--ink); font-weight: 700; }
+.showcase-play > [data-showcase-cta] { display: inline; width: auto; height: auto; border-radius: 0; color: var(--ink); background: transparent; font-size: inherit; }
+.project-card--featured { display: grid; grid-column: 1 / -1; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); border-color: #6d528a; background: linear-gradient(130deg, #21182d, #121015 70%); }
+.project-card--featured .project-media { min-height: 100%; aspect-ratio: auto; }
+.project-card--featured .project-media img { filter: saturate(1) brightness(.92); }
+.project-card--featured .project-body { align-self: center; padding: clamp(24px, 3vw, 40px); }
+.project-card--featured h3 { font-size: clamp(1.75rem, 3vw, 2.6rem); line-height: 1.08; letter-spacing: -.035em; }
+.project-card--featured .project-body > span { min-height: 0; max-width: 470px; font-size: .88rem; line-height: 1.7; }
+.project-feature-label { position: absolute; top: 16px; left: 16px; z-index: 2; padding: 8px 10px; border-radius: 4px; background: var(--accent); color: #09090b; font-family: ui-monospace, monospace; font-size: .6rem; font-weight: 700; letter-spacing: .06em; }
+.project-watch { margin-top: 24px; width: fit-content; min-height: 50px; font-size: .85rem; }
+@media (max-width: 900px) { .project-card--featured { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) {
+  .project-card--featured { display: block; }
+  .project-card--featured .project-media { aspect-ratio: 16 / 9; }
+  .project-card--featured .project-body { padding: 24px 20px; }
+  .project-watch { width: 100%; }
+}

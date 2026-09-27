@@ -116,6 +116,15 @@ document.querySelector("[data-current-year]").textContent = new Date().getFullYe
 
 // User-controlled project previews; the default project also works without JavaScript.
 const showcases = {
+  anime: {
+    title: "Anime Pulse Tower Defense",
+    image: "https://i.ytimg.com/vi/S0q7UuuPW18/maxresdefault.jpg",
+    alt: "Anime Pulse Tower Defense settings and player interface preview",
+    url: "https://youtu.be/S0q7UuuPW18",
+    label: "FEATURED / ANIME PULSE",
+    category: "TOWER DEFENSE · PLAYER UI · UNIT SYSTEMS",
+    description: "Settings, unit configuration and player-facing interfaces. See the systems in action.",
+  },
   simulator: {
     title: "Connected Simulator Framework",
     image: "https://i.ytimg.com/vi/V_LcqUnQkLE/hqdefault.jpg",
@@ -163,6 +172,7 @@ document.querySelectorAll("[data-showcase]").forEach((button) => {
       image.getAnimations().forEach((animation) => animation.cancel());
       image.animate([{ opacity: .35, scale: "1.025" }, { opacity: 1, scale: "1" }], { duration: 320, easing: "ease-out" });
     }
+    document.querySelector("[data-showcase-cta]").textContent = button.dataset.showcase === "anime" ? "Watch Anime Pulse ↗" : "Watch the demo ↗";
     image.src = project.image;
     image.alt = project.alt;
     link.href = project.url;

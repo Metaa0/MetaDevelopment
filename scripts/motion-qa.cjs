@@ -68,7 +68,7 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4178';
   await page.waitForTimeout(250);
   assert.notEqual(await pixels(), first, 'Page restoration restarts canvas');
 
-  const titles = { simulator: 'Connected Simulator Framework', combat: 'Combat Mechanics', keyboard: 'Keyboard ASMR System', hoverboard: 'Hoverboard Obby' };
+  const titles = { anime: 'Anime Pulse Tower Defense', simulator: 'Connected Simulator Framework', combat: 'Combat Mechanics', keyboard: 'Keyboard ASMR System', hoverboard: 'Hoverboard Obby' };
   for (const [key, title] of Object.entries(titles)) {
     await page.locator(`[data-showcase="${key}"]`).click();
     assert.equal(await page.locator('[data-showcase-title]').textContent(), title);
@@ -79,7 +79,8 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4178';
     assert.equal(await page.locator('[data-demo-category]:visible').count(), count);
     assert.equal(await page.locator('[data-demo-count]').textContent(), filter === 'all' ? 'Showing all 7 demos' : `Showing ${count} demos`);
   }
-  assert.equal(await page.locator('.project-card h3').last().textContent(), 'Anime Pulse Tower Defense');
+  assert.equal(await page.locator('.project-card').first().getAttribute('id'), 'anime-pulse');
+  assert.equal(await page.locator('#anime-pulse .project-watch').getAttribute('href'), 'https://youtu.be/S0q7UuuPW18');
   assert.equal(await page.locator('.experience-card h3').count(), 1);
   assert.equal(await page.evaluate(() => document.querySelector('#work').compareDocumentPosition(document.querySelector('#about')) & Node.DOCUMENT_POSITION_FOLLOWING), 4);
   await page.locator('[data-motion-toggle]').click();
@@ -105,7 +106,7 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4178';
   await page.reload();
   assert.equal(await state(), 'reduced', 'Initial reduced-motion setting is respected');
   assert.deepEqual(errors, []);
-  const result = { passed: true, pageErrors: errors, checks: ['cursor follow, links, keyboard and pause', 'no section pop-ins', 'corner counter and mobile CTA spacing', 'canvas changes', 'pause freezes and persists', 'live and initial reduced motion', 'synthetic pagehide/pageshow suspension', 'four hero demos', 'all filters and counts', 'demo ordering', 'pause cancels WAAPI effects', 'rapid reverse scrolling', 'mobile header layout and filtering'], limitation: 'Chromium emulation; lifecycle events are synthetic, not physical-device measurements.' };
+  const result = { passed: true, pageErrors: errors, checks: ['cursor follow, links, keyboard and pause', 'no section pop-ins', 'corner counter and mobile CTA spacing', 'canvas changes', 'pause freezes and persists', 'live and initial reduced motion', 'synthetic pagehide/pageshow suspension', 'five hero demos and featured Anime Pulse CTA', 'all filters and counts', 'demo ordering', 'pause cancels WAAPI effects', 'rapid reverse scrolling', 'mobile header layout and filtering'], limitation: 'Chromium emulation; lifecycle events are synthetic, not physical-device measurements.' };
   fs.writeFileSync(path.join(out,'motion-report.json'), JSON.stringify(result,null,2));
   console.log(JSON.stringify(result));
   await browser.close();
