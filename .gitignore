@@ -2,3 +2,5 @@ assets/videos/*.mp4
 *.log
 .DS_Store
 Thumbs.db
+
+.qa/

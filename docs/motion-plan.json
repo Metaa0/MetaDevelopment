@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "status": "implemented",
+  "primary_library": "Lenis 1.3.26, Canvas 2D, Web Animations API and native CSS",
+  "dependency_decisions": [
+    "One pinned local MIT Lenis distribution for explicitly requested wheel smoothing",
+    "One shared RAF clock; wheel multiplier 1 and lerp .16",
+    "Native touch, keyboard and nested scrolling; no pins"
+  ],
+  "effects": [
+    {
+      "pattern_id": "custom-signal-grid",
+      "section": "fixed page backdrop",
+      "purpose": "Connect the studio identity to responsive gameplay systems",
+      "owner": "motion.js Canvas 2D; separate CSS atmosphere/vignette",
+      "desktop": "20 wave paths, sparse vertical connections and 9 travelling signals; bounded fine-pointer response; 30fps draw cap and 1.5 DPR cap",
+      "mobile": "14 paths, 5 signals, no pointer tracking, 24fps draw cap and 1 DPR cap",
+      "reduced_motion": "Frozen composed frame, no render loop",
+      "fallback": "Static radial atmosphere; all content independent of canvas",
+      "cost": "bounded; not device-profiled",
+      "continuous": true,
+      "cleanup": "Cancel RAF when paused, hidden, reduced motion or pagehide; restart only when permitted; preference stored locally",
+      "data_truth": "Purely decorative; no metrics represented"
+    },
+    {
+      "pattern_id": "custom-demo-preview",
+      "section": "hero",
+      "purpose": "Explore simulator, combat, input/audio and movement demos",
+      "owner": "script.js selection; motion.js separate translate for scroll depth",
+      "desktop": "User-triggered 320ms image dissolve; hero panel moves up to 32px with natural scroll",
+      "mobile": "Same explicit demo selectors; no scroll translation",
+      "reduced_motion": "Immediate selection; no dissolve or translation",
+      "fallback": "Default simulator image, video link and text remain available",
+      "cost": "low",
+      "continuous": false,
+      "cleanup": "Cancel previous image animation on selection; global pause/reduced-motion cancels active animations",
+      "data_truth": "Existing recorded demo destinations; no automatic playback"
+    },
+    {
+      "pattern_id": "custom-progressive-reveal",
+      "section": "all major sections including About, stats, FAQ, form and footer",
+      "purpose": "Give the content a clear entrance rhythm without delaying navigation",
+      "owner": "motion.js IntersectionObserver and Web Animations API",
+      "desktop": "One-shot 22px entrance, 620ms, stagger capped at 110ms; process borders highlight in view",
+      "mobile": "Same short entrances in ordinary vertical flow",
+      "reduced_motion": "Fully visible static content",
+      "fallback": "Default styles are visible; no opacity-zero class",
+      "cost": "low",
+      "continuous": false,
+      "cleanup": "Unobserve after first appearance; cancel animations on pause/preference/visibility change",
+      "data_truth": "No simulated results"
+    },
+    {
+      "pattern_id": "lenis-wheel-interpolation",
+      "section": "desktop page scroll",
+      "purpose": "Smooth wheel steps while preserving their distance",
+      "owner": "Lenis 1.3.26, driven by motion.js RAF",
+      "desktop": "Fine pointer, lerp .16, wheel multiplier 1; custom anchor history/focus/header offsets",
+      "mobile": "Native touch and scrolling; no smoother",
+      "reduced_motion": "Destroy instance, native scrolling remains usable",
+      "fallback": "Vendor failure leaves native document scroll and anchors",
+      "cost": "18,722 bytes JS and 513 bytes CSS; no runtime dependencies",
+      "continuous": false,
+      "cleanup": "Destroy on pause, reduced motion, hidden/pagehide; recreate once on resume; reset around browser navigation",
+      "data_truth": "No performance score claimed"
+    },
+    {
+      "pattern_id": "section-depth-feedback",
+      "section": "About, experience, navigation and interactive cards",
+      "purpose": "Make each major section responsive to scroll and interaction",
+      "owner": "motion.js translate/CSS custom properties; independent from hover transforms",
+      "desktop": "Bounded image depth, section accent progress, current navigation and pointer lighting; short FAQ/filter transitions",
+      "mobile": "Static media geometry, tap/focus controls and progressive entrances",
+      "reduced_motion": "No spatial motion or pointer lighting; navigation remains functional",
+      "fallback": "Visible semantic content",
+      "cost": "low; not physically profiled",
+      "continuous": false,
+      "cleanup": "Reset media translation and cancel active animations when paused; pointer exit clears lighting",
+      "data_truth": "No changing business claims or fabricated counters"
+    }
+  ],
+  "checks": {
+    "mobile": "Chromium responsive checks; physical phones unverified",
+    "keyboard": "Menu, focus return and explicit demo selections checked",
+    "reduced_motion": "Live and initial preference, canvas freezing and WAAPI cancellation checked",
+    "performance": "Resource caps implemented; no field metrics or physical-device profile"
+  }
+}

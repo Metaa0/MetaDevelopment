@@ -1,0 +1,8 @@
+{
+  "package": "lenis",
+  "version": "1.3.26",
+  "source": "https://registry.npmjs.org/lenis/-/lenis-1.3.26.tgz",
+  "integrity": "sha512-s/xTCZCxTFvHbAN1OzuhNaN5YPJH2ail0XAkctKW1b+RUAG4nUL5UHLXwNko1h8aEeT2jspBXegMgPJd8zcuag==",
+  "license": "MIT",
+  "checked": "2026-09-27"
+}

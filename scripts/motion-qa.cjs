@@ -1,0 +1,86 @@
+const { chromium } = require(process.env.PLAYWRIGHT_PATH || 'playwright');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const out = path.resolve(__dirname, '../.qa');
+const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4178';
+
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto(base);
+  const state = () => page.locator('html').getAttribute('data-motion');
+  const pixels = () => page.locator('canvas').evaluate(canvas => canvas.toDataURL());
+  assert.equal(await state(), 'running');
+  let first = await pixels();
+  await page.waitForTimeout(250);
+  assert.notEqual(await pixels(), first, 'Background should animate');
+  await page.locator('[data-motion-toggle]').click();
+  assert.equal(await state(), 'paused');
+  first = await pixels();
+  await page.waitForTimeout(250);
+  assert.equal(await pixels(), first, 'Pause freezes canvas');
+  await page.reload();
+  assert.equal(await state(), 'paused', 'Pause preference persists');
+  await page.locator('[data-motion-toggle]').click();
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.waitForFunction(() => document.documentElement.dataset.motion === 'reduced');
+  assert.equal(await state(), 'reduced');
+  assert.equal(await page.locator('[data-motion-toggle]').isDisabled(), true);
+  first = await pixels();
+  await page.waitForTimeout(250);
+  assert.equal(await pixels(), first, 'Reduced motion freezes canvas');
+  assert.equal(await page.locator('.hero-showcase').evaluate(el => getComputedStyle(el).translate), 'none');
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.waitForFunction(() => document.documentElement.dataset.motion === 'running');
+  assert.equal(await state(), 'running');
+  await page.evaluate(() => window.dispatchEvent(new PageTransitionEvent('pagehide', { persisted: true })));
+  first = await pixels();
+  await page.waitForTimeout(250);
+  assert.equal(await pixels(), first, 'Page suspension stops canvas');
+  await page.evaluate(() => window.dispatchEvent(new PageTransitionEvent('pageshow', { persisted: true })));
+  await page.waitForTimeout(250);
+  assert.notEqual(await pixels(), first, 'Page restoration restarts canvas');
+
+  const titles = { simulator: 'Connected Simulator Framework', combat: 'Combat Mechanics', keyboard: 'Keyboard ASMR System', hoverboard: 'Hoverboard Obby' };
+  for (const [key, title] of Object.entries(titles)) {
+    await page.locator(`[data-showcase="${key}"]`).click();
+    assert.equal(await page.locator('[data-showcase-title]').textContent(), title);
+    assert.equal(await page.locator(`[data-showcase="${key}"]`).getAttribute('aria-pressed'), 'true');
+  }
+  for (const [filter, count] of [['combat',3],['interaction',2],['systems',2],['all',7]]) {
+    await page.locator(`[data-demo-filter="${filter}"]`).click();
+    assert.equal(await page.locator('[data-demo-category]:visible').count(), count);
+    assert.equal(await page.locator('[data-demo-count]').textContent(), filter === 'all' ? 'Showing all 7 demos' : `Showing ${count} demos`);
+  }
+  assert.equal(await page.locator('.project-card h3').last().textContent(), 'Anime Pulse Tower Defense');
+  assert.equal(await page.locator('.experience-card h3').count(), 1);
+  assert.equal(await page.evaluate(() => document.querySelector('#work').compareDocumentPosition(document.querySelector('#about')) & Node.DOCUMENT_POSITION_FOLLOWING), 4);
+  await page.locator('[data-motion-toggle]').click();
+  assert.equal(await page.evaluate(() => document.getAnimations().length), 0, 'Pause cancels entrance and selection animations');
+
+  // Rapid reverse scroll, anchor navigation and intermediate resize retain content.
+  for (const y of [1600,5000,400,3000,0]) await page.evaluate(y => window.scrollTo(0,y), y);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(base);
+  const brand = await page.locator('.site-header .brand').boundingBox();
+  const motion = await page.locator('[data-motion-toggle]').boundingBox();
+  const menu = await page.locator('[data-menu-button]').boundingBox();
+  assert(brand.x + brand.width <= motion.x && motion.x + motion.width <= menu.x, 'Mobile header controls do not overlap');
+  await page.locator('[data-motion-toggle]').click();
+  await page.screenshot({ path: path.join(out,'motion-mobile.png') });
+  await page.locator('[data-demo-filter="combat"]').click();
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+  assert.equal(await page.locator('[data-demo-category]:visible').count(), 3);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.waitForFunction(() => document.documentElement.dataset.motion === 'reduced');
+  await page.reload();
+  assert.equal(await state(), 'reduced', 'Initial reduced-motion setting is respected');
+  assert.deepEqual(errors, []);
+  const result = { passed: true, pageErrors: errors, checks: ['canvas changes', 'pause freezes and persists', 'live and initial reduced motion', 'synthetic pagehide/pageshow suspension', 'four hero demos', 'all filters and counts', 'demo ordering', 'pause cancels WAAPI effects', 'rapid reverse scrolling', 'mobile header layout and filtering'], limitation: 'Chromium emulation; lifecycle events are synthetic, not physical-device measurements.' };
+  fs.writeFileSync(path.join(out,'motion-report.json'), JSON.stringify(result,null,2));
+  console.log(JSON.stringify(result));
+  await browser.close();
+})().catch(error => { console.error(error); process.exit(1); });
