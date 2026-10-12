@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Meta Development — Roblox Systems Studio</title>
     <meta name="description" content="Meta Development builds responsive Roblox gameplay systems, combat, interfaces, and launch-ready prototypes." />
-    <meta name="theme-color" content="#09090b" />
+    <meta name="theme-color" content="#0e0e11" />
     <meta property="og:title" content="Meta Development — Roblox Systems Studio" />
     <meta property="og:description" content="Roblox systems that feel sharp, scale cleanly, and ship ready." />
     <meta property="og:image" content="https://metaa0.github.io/MetaDevelopment/assets/meta-social-icon.png?v=3" />
@@ -22,346 +22,232 @@
     <link rel="icon" type="image/svg+xml" href="assets/meta-icon-v2.svg?v=2" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/vendor/lenis-1.3.26/lenis.css" />
-    <link rel="stylesheet" href="styles.css?v=meta15" />
+    <link rel="stylesheet" href="styles.css?v=meta16" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="ambient-scene" aria-hidden="true"><canvas data-ambient-canvas></canvas><div class="ambient-vignette"></div></div>
-    <button class="motion-toggle" type="button" data-motion-toggle aria-label="Pause animations" aria-pressed="false" hidden><span class="motion-dot" aria-hidden="true"></span><span data-motion-label>Motion on</span></button>
-    <div class="cursor-halo" data-cursor-halo aria-hidden="true"></div>
-          <div class="portfolio-views" data-view-counter>
-            <span>Profile views</span>
-            <span data-view-status>View count requires JavaScript</span>
-            <img data-view-badge hidden alt="Total portfolio page views counted by Hits.sh" height="24" />
-            <details class="view-info"><summary aria-label="About the view count">i</summary><p>Approximate page views since this counter was added, not unique people. Reloads, caching and automated visits can affect the total. The counter makes a request to Hits.sh. <a href="https://hits.sh/metaa0.github.io/MetaDevelopment/" target="_blank" rel="noreferrer">View counter details ↗</a>.</p></details>
-          </div>
-    <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 
     <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="Meta Development home">
-        <span class="brand-dot" aria-hidden="true"></span>
+        <img src="assets/meta-icon-v2.svg?v=2" alt="" width="22" height="22" />
         <span>Meta Development</span>
       </a>
-
       <button class="menu-button" type="button" data-menu-button aria-controls="site-nav" aria-label="Open navigation" aria-expanded="false">
         <span></span><span></span>
       </button>
-
       <nav class="site-nav" id="site-nav" data-nav aria-label="Main navigation">
+        <a href="#work">Work</a>
         <a href="#about">About</a>
-        <a href="#work">Demos</a>
-        <a href="#proof">Experience</a>
-        <a href="#process">Process</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
-        <a class="nav-cta" href="#contact">Get a project quote</a>
+        <a class="nav-cta" href="#contact">Get a quote</a>
       </nav>
     </header>
 
     <main id="main" tabindex="-1">
       <div id="top"></div>
-      <section class="hero section-shell">
+
+      <section class="hero wrap">
         <div class="hero-copy">
-          <p class="kicker"><span></span> INDEPENDENT ROBLOX DEVELOPER</p>
-          <h1>Your next Roblox feature.<br /><em>Built to play.</em></h1>
-          <p class="hero-lede">I build combat, gameplay systems and interfaces for Roblox creators. From a focused feature package to a connected game loop, let’s turn your idea into something players can use.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#contact">Get a project quote <span>→</span></a>
-            <a class="button button-secondary" href="#work">Explore the demos <span>↘</span></a>
+          <p class="eyebrow">Independent Roblox developer</p>
+          <h1>Your next Roblox feature, built to play.</h1>
+          <p class="lede">I build combat, gameplay systems and interfaces for Roblox creators. From a couple of focused features to a connected game loop.</p>
+          <div class="actions">
+            <a class="button button-primary" href="#contact">Get a project quote</a>
+            <a class="button button-plain" href="#work">See the work</a>
           </div>
-          <p class="cta-note">Projects from $600. Scope and price agreed before work starts.</p>
-
+          <p class="note">Projects from $600. Scope and price agreed before work starts.</p>
         </div>
-
-        <div class="hero-showcase">
-          <div class="showcase-topline"><span>THE DEMO LAB</span><span>SELECT A SYSTEM ↓</span></div>
-          <div class="showcase-selector" role="group" aria-label="Choose a featured demo" hidden data-showcase-controls>
-            <button type="button" class="showcase-featured" data-showcase="anime" aria-pressed="true">Featured / Anime Pulse <span aria-hidden="true">↗</span></button>
-            <button type="button" data-showcase="simulator" aria-pressed="false">01 / Simulator</button>
-            <button type="button" data-showcase="combat" aria-pressed="false">02 / Combat</button>
-            <button type="button" data-showcase="keyboard" aria-pressed="false">03 / Input &amp; audio</button>
-            <button type="button" data-showcase="hoverboard" aria-pressed="false">04 / Movement</button>
-          </div>
-          <a class="showcase-art" data-showcase-link href="https://youtu.be/S0q7UuuPW18" target="_blank" rel="noreferrer" aria-label="Watch Anime Pulse Tower Defense showcase on YouTube">
-            <img data-showcase-image src="https://i.ytimg.com/vi/S0q7UuuPW18/maxresdefault.jpg" alt="Anime Pulse Tower Defense settings and player interface preview" fetchpriority="high" />
-            <span class="showcase-art-label" data-showcase-label>FEATURED / ANIME PULSE</span>
-            <span class="showcase-play"><span aria-hidden="true">▶</span> <span data-showcase-cta>Watch Anime Pulse ↗</span></span>
+        <figure class="hero-feature">
+          <a href="https://youtu.be/S0q7UuuPW18" target="_blank" rel="noreferrer" aria-label="Watch the Anime Pulse Tower Defense showcase on YouTube">
+            <img src="https://i.ytimg.com/vi/S0q7UuuPW18/maxresdefault.jpg" alt="Anime Pulse Tower Defense settings and player interface" width="1280" height="720" fetchpriority="high" />
+            <span class="play" aria-hidden="true"></span>
           </a>
-          <div class="showcase-caption" aria-live="polite" aria-atomic="true">
-            <p class="section-label" data-showcase-category>TOWER DEFENSE · PLAYER UI · UNIT SYSTEMS</p>
-            <h2 data-showcase-title>Anime Pulse Tower Defense</h2>
-            <p data-showcase-description>Settings, unit configuration and player-facing interfaces. See the systems in action.</p>
-          </div>
-          <div class="showcase-footer"><span>Built in Studio. Shown in action.</span><a href="#work">Explore all 7 demos <span>↗</span></a></div>
-        </div>
+          <figcaption><strong>Anime Pulse Tower Defense</strong> Settings, unit configuration and player UI. <a href="https://youtu.be/S0q7UuuPW18" target="_blank" rel="noreferrer">Watch on YouTube</a></figcaption>
+        </figure>
       </section>
 
-      <section class="stats" id="stats" aria-label="Studio statistics">
-        <div class="section-shell stats-grid">
-          <div class="stat stat-lead"><p class="section-label">// THE STUDIO</p><strong>Luau</strong><span>Roblox systems &amp; scripting</span></div>
-          <div class="stat"><strong>7</strong><span>Recorded showcases</span></div>
-          <div class="stat"><strong>1:1</strong><span>Developer, direct contact</span></div>
-          <div class="stat"><strong>Scoped</strong><span>Price agreed before the build</span></div>
+      <section class="work wrap" id="work" aria-labelledby="work-title">
+        <div class="section-head">
+          <h2 id="work-title">Recent work</h2>
+          <p>Recorded gameplay from systems I've built. Each one opens the full video on YouTube.</p>
         </div>
-      </section>
-
-      <section class="work section-shell" id="work">
-        <div class="section-heading">
-          <div><p class="section-label">// THE DEMO LIBRARY</p><h2>Press play.<br /><em>See the systems.</em></h2></div>
-          <p>Explore recorded gameplay across simulator systems, combat, movement and player feedback. Every demo opens its full video on YouTube.</p>
-        </div>
-
-        <div class="demo-toolbar" hidden data-demo-toolbar>
-          <div class="demo-filters" role="group" aria-label="Filter gameplay demos">
-            <button type="button" data-demo-filter="all" aria-pressed="true">All demos <span>07</span></button>
-            <button type="button" data-demo-filter="systems" aria-pressed="false">Game systems</button>
-            <button type="button" data-demo-filter="combat" aria-pressed="false">Combat &amp; weapons</button>
-            <button type="button" data-demo-filter="interaction" aria-pressed="false">Movement &amp; input</button>
-          </div>
-          <p data-demo-count role="status">Showing all 7 demos</p>
-        </div>
-        <div class="work-grid">
-          <article data-demo-category="systems" class="project-card project-card--featured" id="anime-pulse">
-            <a class="project-media" href="https://youtu.be/S0q7UuuPW18" target="_blank" rel="noreferrer" aria-label="Watch the Anime Pulse Tower Defense showcase on YouTube">
-              <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/S0q7UuuPW18/maxresdefault.jpg" alt="Anime Pulse Tower Defense settings and player interface preview" />
-              <span class="project-feature-label">FEATURED PROJECT</span>
-              <span class="play"><i></i></span><small>Watch Anime Pulse ↗</small>
-            </a>
-            <div class="project-body">
-              <p>TOWER DEFENSE · PLAYER UI · UNIT SYSTEMS</p>
-              <h3>Anime Pulse<br />Tower Defense</h3>
-              <span>A closer look at the player-facing systems behind Anime Pulse: readable settings, unit configuration and a polished setup flow.</span>
-              <ul class="project-merits project-merits--compact">
-                <li>Settings and player preferences</li>
-                <li>Unit configuration interfaces</li>
-                <li>Connected player-facing setup flow</li>
-              </ul>
-              <a class="button button-primary project-watch" href="https://youtu.be/S0q7UuuPW18" target="_blank" rel="noreferrer" aria-label="Watch Anime Pulse Tower Defense on YouTube">Watch Anime Pulse <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-
-          <article data-demo-category="systems" class="project-card project-card--wide">
-            <a class="project-media" href="https://youtu.be/V_LcqUnQkLE" target="_blank" rel="noreferrer" aria-label="Watch the Gold Empire connected systems showcase on YouTube">
-              <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/V_LcqUnQkLE/hqdefault.jpg" alt="Gold Empire connected simulator systems gameplay preview" />
-              <span class="play"><i></i></span><small>Watch 1:30 showcase ↗</small>
-            </a>
-            <div class="project-body">
-              <p>ECONOMY · INVENTORY · WORLD SYSTEMS</p>
+        <ul class="work-grid">
+          <li class="work-item">
+            <a href="https://youtu.be/V_LcqUnQkLE" target="_blank" rel="noreferrer">
+              <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/V_LcqUnQkLE/hqdefault.jpg" alt="Gold Empire connected simulator systems gameplay" width="480" height="360" />
               <h3>Connected Simulator Framework</h3>
-              <span>A complete player loop built as one cohesive system suite—not a collection of disconnected scripts.</span>
-              <ul class="project-merits">
-                <li>Guided tutorial and teleport flow</li>
-                <li>Placement validation with VFX feedback</li>
-                <li>Inventory, storage, pickup and selling pipeline</li>
-                <li>Price variation and connected economy states</li>
-              </ul>
-            </div>
-          </article>
-
-          <article data-demo-category="combat" class="project-card">
-            <a class="project-media" href="https://youtu.be/m7pZJbzlLj0" target="_blank" rel="noreferrer" aria-label="Watch Combat Mechanics Test on YouTube">
-              <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/m7pZJbzlLj0/hqdefault.jpg" alt="Combat mechanics gameplay preview" />
-              <span class="play"><i></i></span><small>Watch demo ↗</small>
             </a>
-            <div class="project-body"><p>COMBAT · MECHANICS · FEEDBACK</p><h3>Combat Mechanics Test</h3><span>Melee timing, hit feedback, and a deliberate response to every player input.</span></div>
-          </article>
-
-          <article data-demo-category="combat" class="project-card">
-            <a class="project-media" href="https://youtu.be/zigIRwqCTKs" target="_blank" rel="noreferrer" aria-label="Watch Sniper Gun System on YouTube">
-              <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/zigIRwqCTKs/hqdefault.jpg" alt="Sniper gun system gameplay preview" />
-              <span class="play"><i></i></span><small>Watch demo ↗</small>
-            </a>
-            <div class="project-body"><p>WEAPONS · SNIPER · HUD</p><h3>Sniper Gun System</h3><span>Aiming, firing feedback, HUD behaviour, and deliberate long-range handling.</span></div>
-          </article>
-
-          <article data-demo-category="combat" class="project-card">
-            <a class="project-media" href="https://youtu.be/2spQo-1RqzQ" target="_blank" rel="noreferrer" aria-label="Watch AK Gun System on YouTube">
-              <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/2spQo-1RqzQ/hqdefault.jpg" alt="AK gun system gameplay preview" />
-              <span class="play"><i></i></span><small>Watch demo ↗</small>
-            </a>
-            <div class="project-body"><p>WEAPONS · AUTOMATIC · COMBAT</p><h3>AK Gun System</h3><span>Automatic weapon handling, reload feedback, and combat interface support.</span></div>
-          </article>
-
-          <article data-demo-category="interaction" class="project-card">
-            <a class="project-media" href="https://youtu.be/C5oBTtvQghE" target="_blank" rel="noreferrer" aria-label="Watch the Keyboard ASMR system showcase on YouTube">
-              <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/C5oBTtvQghE/hqdefault.jpg" alt="Keyboard ASMR input system gameplay preview" />
-              <span class="play"><i></i></span><small>Watch 0:33 showcase ↗</small>
-            </a>
-            <div class="project-body">
-              <p>INPUT · AUDIO · GAME FEEL</p>
-              <h3>Keyboard ASMR System</h3>
-              <span>A tactile input system that turns every key press into synchronized sound, motion and progression feedback.</span>
-              <ul class="project-merits project-merits--compact">
-                <li>Per-key ASMR response</li>
-                <li>Synced key animation</li>
-                <li>Live stage and HUD updates</li>
-              </ul>
-            </div>
-          </article>
-
-          <article data-demo-category="interaction" class="project-card">
-            <a class="project-media" href="https://youtu.be/lEorSYMsxoU" target="_blank" rel="noreferrer" aria-label="Watch the Hoverboard Obby game showcase on YouTube">
-              <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/lEorSYMsxoU/hqdefault.jpg" alt="Obby But You're on a Hoverboard gameplay preview" />
-              <span class="play"><i></i></span><small>Watch 3:16 showcase ↗</small>
-            </a>
-            <div class="project-body">
-              <p>MOVEMENT · OBBY · PROGRESSION</p>
+            <p>Tutorial and teleport flow, placement with validation, inventory, selling and a connected economy.</p>
+            <span class="tags">Economy · Inventory · World systems · 1:30</span>
+          </li>
+          <li class="work-item">
+            <a href="https://youtu.be/lEorSYMsxoU" target="_blank" rel="noreferrer">
+              <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/lEorSYMsxoU/hqdefault.jpg" alt="Obby But You're on a Hoverboard gameplay" width="480" height="360" />
               <h3>Hoverboard Obby Game Loop</h3>
-              <span>A fast, readable traversal experience built around responsive hoverboard control and repeatable progression.</span>
-              <ul class="project-merits">
-                <li>Speed-tuned hoverboard movement</li>
-                <li>Obby stages and checkpoint progression</li>
-                <li>Responsive HUD, settings and feedback</li>
-                <li>Cash, crates, trophies and board upgrades</li>
-              </ul>
-            </div>
-          </article>
+            </a>
+            <p>Speed-tuned hoverboard movement, checkpoint progression, upgrades and rewards.</p>
+            <span class="tags">Movement · Progression · 3:16</span>
+          </li>
+          <li class="work-item">
+            <a href="https://youtu.be/m7pZJbzlLj0" target="_blank" rel="noreferrer">
+              <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/m7pZJbzlLj0/hqdefault.jpg" alt="Combat mechanics gameplay" width="480" height="360" />
+              <h3>Combat Mechanics</h3>
+            </a>
+            <p>Melee timing, hit feedback and a clear response to every input.</p>
+            <span class="tags">Combat · Feedback</span>
+          </li>
+          <li class="work-item">
+            <a href="https://youtu.be/C5oBTtvQghE" target="_blank" rel="noreferrer">
+              <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/C5oBTtvQghE/hqdefault.jpg" alt="Keyboard ASMR input system gameplay" width="480" height="360" />
+              <h3>Keyboard ASMR System</h3>
+            </a>
+            <p>Each key press drives its own sound, animation and progression update.</p>
+            <span class="tags">Input · Audio · 0:33</span>
+          </li>
+          <li class="work-item">
+            <a href="https://youtu.be/zigIRwqCTKs" target="_blank" rel="noreferrer">
+              <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/zigIRwqCTKs/hqdefault.jpg" alt="Sniper gun system gameplay" width="480" height="360" />
+              <h3>Sniper Gun System</h3>
+            </a>
+            <p>Aiming, firing feedback and HUD behaviour for long-range play.</p>
+            <span class="tags">Weapons · HUD</span>
+          </li>
+          <li class="work-item">
+            <a href="https://youtu.be/2spQo-1RqzQ" target="_blank" rel="noreferrer">
+              <img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/2spQo-1RqzQ/hqdefault.jpg" alt="AK gun system gameplay" width="480" height="360" />
+              <h3>AK Gun System</h3>
+            </a>
+            <p>Automatic fire, reload feedback and combat interface support.</p>
+            <span class="tags">Weapons · Combat</span>
+          </li>
+        </ul>
 
-
-        </div>
-      </section>
-
-      <section class="about section-shell" id="about">
-        <div>
-          <p class="section-label">// ABOUT</p>
-          <div class="about-visual">
-            <img loading="lazy" decoding="async" src="assets/hero-roblox-dev.png" alt="Roblox Studio development workspace" />
-            <span>BUILD MODE · ACTIVE</span>
+        <article class="live" data-roblox-experience="10537219160">
+          <img loading="lazy" decoding="async" src="assets/hoverboard-obby-icon.png" alt="Obby But You're on a Hoverboard game icon" width="160" height="160" />
+          <div class="live-body">
+            <p class="eyebrow">Live on Roblox</p>
+            <h3>Obby But You're on a Hoverboard</h3>
+            <p>A speed-focused obby with hoverboard traversal, distinct worlds and a replayable progression loop.</p>
+            <dl class="live-stats" aria-live="polite">
+              <div><dt>Playing now</dt><dd data-roblox-stat="playing">—</dd></div>
+              <div><dt>Total visits</dt><dd data-roblox-stat="visits">—</dd></div>
+              <div><dt>Server size</dt><dd data-roblox-stat="maxPlayers">—</dd></div>
+            </dl>
+            <small class="live-note" data-roblox-updated>Game statistics load from Roblox.</small>
           </div>
-        </div>
-        <div class="about-copy">
-          <h2>Solo developer. Serious systems. <em>No mystery.</em></h2>
-          <p>I run Meta Development as a focused Roblox systems studio, working on the parts players feel immediately: responsive input, readable feedback, dependable networking, and interfaces that make sense.</p>
-          <p>Every scope is agreed before work begins. You get milestone updates, tested delivery, and code designed to be understood and extended—not a tangled handoff.</p>
-          <div class="mini-stats"><span><strong>Luau</strong>core stack</span><span><strong>Open</strong>to work</span><span><strong>Direct</strong>communication</span></div>
+          <a class="button button-primary" href="https://www.roblox.com/games/78558946831616/Obby-But-Youre-on-a-Hoverboard" target="_blank" rel="noreferrer">Play on Roblox</a>
+        </article>
+      </section>
+
+      <section class="about wrap" id="about" aria-labelledby="about-title">
+        <h2 id="about-title">About</h2>
+        <div class="about-body">
+          <p class="about-lead">I'm a solo Roblox developer. I work on the parts players feel straight away: responsive input, readable feedback, dependable networking and interfaces that make sense.</p>
+          <p>Every scope is agreed before work begins. You get milestone updates, tested delivery, and code written to be understood and extended, not a tangled handoff.</p>
+          <h3>What I build</h3>
+          <ul class="plain-list">
+            <li>Combat and weapon systems</li>
+            <li>Core loops, progression and rewards</li>
+            <li>Inventory, shops and economy</li>
+            <li>HUDs, menus and settings</li>
+            <li>Client–server validation</li>
+            <li>Fixes inside existing games</li>
+          </ul>
+          <p class="stack">Luau · Roblox Studio · ModuleScripts · RemoteEvents · DataStores</p>
         </div>
       </section>
 
-      <section class="proof" id="proof">
-        <div class="section-shell proof-intro"><p class="section-label">// PROOF, NOT PROMISES</p><h2>Built to be played—not just presented.</h2><p>My portfolio is deliberately transparent: every featured system links to a working gameplay demonstration.</p></div>
-        <div class="section-shell proof-grid">
-          <article><span>01</span><h3>Responsive by default</h3><p>Input, feedback, and interface states are treated as one player experience.</p></article>
-          <article><span>02</span><h3>Server-aware architecture</h3><p>Core outcomes are validated with clean client-server boundaries in mind.</p></article>
-          <article><span>03</span><h3>Clear handoff</h3><p>Milestones, scope, testing, and ownership are made clear before delivery.</p></article>
-        </div>
-        <div class="section-shell experience-showcase">
-          <div class="experience-heading"><p class="section-label">// EXPERIENCE PORTFOLIO</p><h3>Playable work, with the details that matter.</h3><p>Try the hoverboard experience on Roblox after watching the demo. These game statistics are separate from this portfolio’s view count.</p></div>
-          <div class="experience-grid experience-grid--single">
-
-
-            <article class="experience-card experience-card--live" data-roblox-experience="10537219160">
-              <div class="experience-media experience-media--icon"><img loading="lazy" decoding="async" src="assets/hoverboard-obby-icon.png" alt="Obby But You're on a Hoverboard Roblox game icon" /><span class="experience-status"><i></i> LIVE ON ROBLOX</span></div>
-              <div class="experience-content">
-                <p class="section-label">PLAYABLE EXPERIENCE · 2026</p>
-                <h3>Obby But You're on a Hoverboard</h3>
-                <p>A speed-focused obstacle game with responsive hoverboard traversal, distinct worlds, progression rewards and a complete replayable loop.</p>
-                <div class="experience-metrics" role="group" aria-label="Live Roblox game statistics" aria-live="polite">
-                  <span><strong data-roblox-stat="playing">—</strong><small>playing now</small></span>
-                  <span><strong data-roblox-stat="visits">—</strong><small>total visits</small></span>
-                  <span><strong data-roblox-stat="maxPlayers">—</strong><small>server size</small></span>
-                </div>
-                <div class="tag-row"><span>Hoverboard movement</span><span>Obby progression</span><span>Rewards</span><span>Settings</span></div>
-                <div class="experience-actions"><a class="button button-primary" href="https://www.roblox.com/games/78558946831616/Obby-But-Youre-on-a-Hoverboard" target="_blank" rel="noreferrer">Play on Roblox <span>↗</span></a><a class="button button-secondary" href="https://youtu.be/lEorSYMsxoU" target="_blank" rel="noreferrer">Watch build</a></div>
-                <small class="live-note" data-roblox-updated>Game statistics require a successful Roblox data refresh.</small>
-              </div>
-            </article>
-          </div>
-        </div>
+      <section class="process wrap" id="process" aria-labelledby="process-title">
+        <h2 id="process-title">How it works</h2>
+        <ol class="steps">
+          <li><strong>Send the idea</strong><span>The feature, references, deadline and budget range.</span></li>
+          <li><strong>Agree the scope</strong><span>I confirm deliverables, price and a realistic timeline.</span></li>
+          <li><strong>Follow the build</strong><span>Milestone updates while it takes shape.</span></li>
+          <li><strong>Delivery</strong><span>Tested work, a clear handoff and support for bugs in what I delivered.</span></li>
+        </ol>
       </section>
 
-      <section class="process section-shell" id="process">
-        <div class="section-heading"><div><p class="section-label">// HOW I WORK</p><h2>From brief to delivery, no guesswork.</h2></div><p>A simple process designed to keep scope, progress, and ownership obvious.</p></div>
-        <div class="process-grid">
-          <article><span>1</span><small>BRIEF</small><h3>Send the idea</h3><p>Share the feature, references, deadline, and budget range.</p></article>
-          <article><span>2</span><small>SCOPE</small><h3>Lock the plan</h3><p>I confirm deliverables, price, and a realistic timeline.</p></article>
-          <article><span>3</span><small>BUILD</small><h3>Follow progress</h3><p>Milestone updates keep the build visible while it takes shape.</p></article>
-          <article><span>4</span><small>DELIVER</small><h3>Ship cleanly</h3><p>Tested work, clear handoff, and practical post-delivery support.</p></article>
+      <section class="pricing wrap" id="pricing" aria-labelledby="pricing-title">
+        <div class="section-head">
+          <h2 id="pricing-title">Pricing</h2>
+          <p>Starting points. The final quote depends on complexity, integration and what we agree to deliver.</p>
         </div>
-      </section>
-
-      <section class="skills section-shell" id="skills">
-        <div class="section-heading"><div><p class="section-label">// SKILLS &amp; TECH</p><h2>The toolkit behind the systems.</h2></div></div>
-        <div class="skills-grid">
-          <article><small>SCRIPTING</small><h3>Luau systems</h3><p>Modular gameplay architecture built to remain readable and extendable.</p></article>
-          <article><small>FRONTEND</small><h3>GUI logic</h3><p>Responsive HUDs, menus, inventories, and player-facing flows.</p></article>
-          <article><small>NETWORKING</small><h3>Client-server</h3><p>Clear replication boundaries and validation for important actions.</p></article>
-          <article><small>GAMEPLAY</small><h3>Core loops</h3><p>Combat, placement, tower defense, progression, shops, and rewards.</p></article>
-          <article><small>POLISH</small><h3>Player feedback</h3><p>Readable states, animation timing, effects hooks, and satisfying response.</p></article>
-          <article><small>DELIVERY</small><h3>Testing &amp; handoff</h3><p>Focused QA, practical documentation, and support after delivery.</p></article>
-        </div>
-        <div class="ticker" role="group" aria-label="Technical toolkit"><div><span>Luau</span><span>Roblox Studio</span><span>ModuleScripts</span><span>RemoteEvents</span><span>DataStores</span><span>OOP</span><span>UI Systems</span><span>Server Validation</span></div></div>
-      </section>
-
-      <section class="pricing section-shell" id="pricing">
-        <div class="section-heading"><div><p class="section-label">// PRICING</p><h2>Clear starting points.</h2></div><p>Projects start at $600 for a couple of focused features. Complexity, integration and the agreed deliverables determine the final quote.</p></div>
-        <div class="pricing-grid">
+        <div class="plans">
           <article>
-            <small>FEATURE PACKAGE</small><h3>A couple of focused features</h3>
-            <div class="price">$600+ <span>starting</span></div>
-            <p>A focused package of two small, clearly defined features for your existing Roblox game.</p>
-            <ul><li>Two features, scoped together</li><li>Integration and a testing pass</li><li>Clear handoff and setup notes</li></ul>
-            <a href="#contact" data-scope="Feature package" data-project-type="Gameplay system">Scope my features <span>↗</span></a>
-          </article>
-          <article class="featured">
-            <b>CONNECTED SYSTEMS</b><small>SYSTEMS BUILD</small><h3>A complete gameplay system</h3>
-            <div class="price">$1,500+ <span>starting</span></div>
-            <p>For more involved mechanics with connected logic, interface states and integration into your game.</p>
-            <ul><li>System planning and implementation</li><li>Integration and testing milestones</li><li>Documentation for your team</li></ul>
-            <a href="#contact" data-scope="Systems build" data-project-type="Gameplay system">Get a systems quote <span>↗</span></a>
+            <h3>Feature package</h3>
+            <p class="price">$600<span>+</span></p>
+            <p>Two small, clearly defined features for your existing game, with integration, testing and setup notes.</p>
+            <a href="#contact" data-scope="Feature package" data-project-type="Gameplay system">Scope my features</a>
           </article>
           <article>
-            <small>PLAYABLE PROTOTYPE</small><h3>A connected core loop</h3>
-            <div class="price">$3,000+ <span>starting</span></div>
-            <p>For a playable foundation with multiple systems built around one agreed game loop.</p>
-            <ul><li>Core loop and connected features</li><li>Milestone-based delivery</li><li>Testing, handoff and agreed support</li></ul>
-            <a href="#contact" data-scope="Playable prototype" data-project-type="Playable prototype">Plan my prototype <span>↗</span></a>
+            <h3>Systems build</h3>
+            <p class="price">$1,500<span>+</span></p>
+            <p>A complete mechanic with connected logic, interface states, integration milestones and documentation.</p>
+            <a href="#contact" data-scope="Systems build" data-project-type="Gameplay system">Get a systems quote</a>
+          </article>
+          <article>
+            <h3>Playable prototype</h3>
+            <p class="price">$3,000<span>+</span></p>
+            <p>A playable foundation with several systems built around one agreed core loop, delivered in milestones.</p>
+            <a href="#contact" data-scope="Playable prototype" data-project-type="Playable prototype">Plan my prototype</a>
           </article>
         </div>
       </section>
 
-      <section class="faq section-shell" id="faq">
-        <p class="section-label">// FAQ</p><h2>Questions, answered.</h2>
+      <section class="faq wrap" id="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">FAQ</h2>
         <div class="faq-list">
-          <details open><summary>How long will my project take?<span>+</span></summary><p>Feature packages, systems builds and prototypes are scheduled around their scope and integration requirements. You receive a realistic timeline before work begins.</p></details>
-          <details><summary>What does the $600 starting price cover?<span>+</span></summary><p>The base package is for two small, clearly defined features. A complex combat system or another substantial mechanic may need a larger scope. We agree exactly what is included, how it connects to your existing game, and the final price before work begins.</p></details>
-          <details><summary>How does payment work?<span>+</span></summary><p>Payment structure is agreed with the scope. Larger work can be split into clear milestones so delivery and payment stay aligned.</p></details>
-          <details><summary>What happens after delivery?<span>+</span></summary><p>You receive the agreed files and ownership. I also provide practical support for bugs caused by the delivered work.</p></details>
-          <details><summary>Can you work inside an existing game?<span>+</span></summary><p>Yes. I can improve or extend existing systems after reviewing the current architecture and confirming a safe scope.</p></details>
-          <details><summary>How do I get started?<span>+</span></summary><p>Send a short brief using the form below or email me directly. Your game link and deadline are optional, and “Not sure yet” is fine for the budget. I’ll reply to the contact details you provide.</p></details>
+          <details open><summary>How long will my project take?</summary><p>It depends on scope and how much it has to connect to. You get a realistic timeline before work begins.</p></details>
+          <details><summary>What does the $600 starting price cover?</summary><p>Two small, clearly defined features. A complex combat system or another substantial mechanic may need a larger scope. We agree exactly what's included and the final price before work begins.</p></details>
+          <details><summary>How does payment work?</summary><p>It's agreed with the scope. Larger work can be split into milestones so delivery and payment stay aligned.</p></details>
+          <details><summary>What happens after delivery?</summary><p>You receive the agreed files and ownership. I also fix bugs caused by the delivered work.</p></details>
+          <details><summary>Can you work inside an existing game?</summary><p>Yes. I review the current architecture first and confirm a safe scope.</p></details>
         </div>
       </section>
 
-      <section class="contact" id="contact">
-        <div class="section-shell contact-grid">
-          <div class="contact-copy"><p class="section-label">// PROJECT INQUIRY</p><h2>Got the idea?<br /><em>Let’s scope it.</em></h2><p>Tell me what you want players to do. I’ll review the brief and reply with any questions before we agree the deliverables, price and timeline.</p>
-            <div class="contact-points"><span>→ Email <a href="mailto:samdolatshahi9@gmail.com">samdolatshahi9@gmail.com</a></span><span>→ Discord <button type="button" data-copy="notletriq">@notletriq</button></span></div>
-          <ol class="contact-next"><li><span>01</span><div><strong>Send a short brief</strong><p>A rough idea is enough to start.</p></div></li><li><span>02</span><div><strong>We agree the scope</strong><p>Deliverables, timeline and price come first.</p></div></li><li><span>03</span><div><strong>Follow the build</strong><p>Clear milestones from first pass to handoff.</p></div></li></ol>
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="wrap contact-grid">
+          <div class="contact-copy">
+            <h2 id="contact-title">Tell me what you want to build</h2>
+            <p>A rough idea is enough. I'll reply with any questions before we agree the deliverables, price and timeline.</p>
+            <dl class="contact-points">
+              <div><dt>Email</dt><dd><a href="mailto:samdolatshahi9@gmail.com">samdolatshahi9@gmail.com</a></dd></div>
+              <div><dt>Discord</dt><dd><button type="button" data-copy="notletriq">@notletriq <span>Copy</span></button></dd></div>
+            </dl>
           </div>
           <form class="contact-form" action="https://formsubmit.co/samdolatshahi9@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="New Meta Development project enquiry" /><input type="hidden" name="_template" value="table" /><input type="hidden" name="_captcha" value="false" /><input type="hidden" name="_next" value="https://metaa0.github.io/MetaDevelopment/thanks.html" />
-            <div class="form-heading"><h3>Get a project quote</h3><p>Projects start at $600. Share the essentials and we’ll work out the scope together.</p></div>
             <p class="selected-scope" data-selected-scope role="status" hidden></p>
             <input type="hidden" name="selectedScope" value="" />
             <div hidden aria-hidden="true"><label>Leave this empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label></div>
-            <div class="form-row"><label>Your name / handle<input type="text" name="name" autocomplete="name" placeholder="e.g. Alex" required /></label><label>Email or Discord<input type="text" name="contact" placeholder="Where should I reply?" required /></label></div>
-            <div class="form-row"><label>Project type<select name="projectType"><option>Gameplay system</option><option>Bug fix or improvement</option><option>Combat or weapon system</option><option>UI / UX implementation</option><option>Tower defense system</option><option>Playable prototype</option><option>Other Roblox development</option></select></label><label>Budget range<select name="budget"><option>Not sure yet</option><option>$600 – $1,499</option><option>$1,500 – $2,999</option><option>$3,000 – $4,999</option><option>$5,000+</option></select></label></div>
-            <label>What would you like built?<textarea name="brief" rows="5" placeholder="e.g. A tower placement system for my game, with upgrades and a mobile-friendly interface." required minlength="15"></textarea></label>
-            <div class="form-row"><label>Game or reference link (optional)<input type="url" name="gameLink" placeholder="https://" /></label><label>Ideal deadline (optional)<input type="text" name="deadline" placeholder="e.g. October, or flexible" /></label></div>
-            <button class="button button-primary" type="submit">Send my project brief <span>↗</span></button>
-            <p class="form-note">Your enquiry is sent via FormSubmit. Prefer email? <a href="mailto:samdolatshahi9@gmail.com">Send your brief directly ↗</a></p>
+            <div class="form-row"><label>Your name or handle<input type="text" name="name" autocomplete="name" required /></label><label>Email or Discord<input type="text" name="contact" placeholder="Where should I reply?" required /></label></div>
+            <div class="form-row"><label>Project type<select name="projectType"><option>Gameplay system</option><option>Bug fix or improvement</option><option>Combat or weapon system</option><option>UI / UX implementation</option><option>Tower defense system</option><option>Playable prototype</option><option>Other Roblox development</option></select></label><label>Budget<select name="budget"><option>Not sure yet</option><option>$600 – $1,499</option><option>$1,500 – $2,999</option><option>$3,000 – $4,999</option><option>$5,000+</option></select></label></div>
+            <label>What would you like built?<textarea name="brief" rows="5" placeholder="e.g. A tower placement system with upgrades and a mobile-friendly interface." required minlength="15"></textarea></label>
+            <div class="form-row"><label>Game or reference link <span class="optional">(optional)</span><input type="url" name="gameLink" placeholder="https://" /></label><label>Deadline <span class="optional">(optional)</span><input type="text" name="deadline" placeholder="e.g. October, or flexible" /></label></div>
+            <button class="button button-primary" type="submit">Send project brief</button>
+            <p class="form-note">Sent via FormSubmit. Prefer email? <a href="mailto:samdolatshahi9@gmail.com">Email me directly</a>.</p>
           </form>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer section-shell"><a class="brand" href="#top"><span class="brand-dot"></span><span>Meta Development</span></a><p>Roblox systems. Built with intent.</p><span>© <span data-current-year></span> Meta Development</span></footer>
+    <footer class="site-footer wrap">
+      <span>© <span data-current-year></span> Meta Development</span>
+      <div class="portfolio-views" data-view-counter>
+        <span>Site views</span>
+        <span data-view-status>View count requires JavaScript</span>
+        <img data-view-badge hidden alt="Total portfolio page views counted by Hits.sh" height="20" />
+        <details class="view-info"><summary aria-label="About the view count">?</summary><p>Approximate page views since this counter was added, not unique people. Reloads, caching and automated visits can affect the total. The counter makes a request to Hits.sh. <a href="https://hits.sh/metaa0.github.io/MetaDevelopment/" target="_blank" rel="noreferrer">Counter details</a>.</p></details>
+      </div>
+    </footer>
 
-    <a class="mobile-quote" href="#contact">Get a project quote <span>↗</span></a>
-    <div class="copy-toast" data-copy-toast role="status" aria-live="polite">Copied to clipboard</div>
-    <script src="script.js?v=meta15"></script>
+    <a class="mobile-quote" href="#contact">Get a project quote</a>
+    <div class="copy-toast" data-copy-toast role="status" aria-live="polite"></div>
+    <script src="script.js?v=meta16"></script>
     <script src="assets/vendor/lenis-1.3.26/lenis.min.js"></script>
-    <script src="motion.js?v=meta15"></script>
+    <script src="motion.js?v=meta16"></script>
   </body>
 </html>

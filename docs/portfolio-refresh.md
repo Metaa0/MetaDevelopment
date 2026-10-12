@@ -100,3 +100,14 @@ The user requested more attention for Anime Pulse. It is now the default hero pr
 ## Native cursor visibility fix
 
 The custom halo now replaces the native pointer while running and visible, including over links/buttons. A root class is enabled only after a real fine-pointer movement positions the halo. Text fields, keyboard use, pause, reduced motion, touch, pointer exit and blur clear that class to restore the native cursor. CSS additionally gates hiding by fine pointer and no reduced-motion preference. Missing JavaScript leaves the native cursor available. Updated cursor QA checks computed cursor styles for these states.
+
+
+## Simplification pass (12 October 2026)
+
+The owner said the site looked AI-coded and asked for a simpler design without the About photo. Rewrote index.html, styles.css and script.js; motion.js now only runs Lenis wheel smoothing (desktop fine pointer, off for reduced motion).
+
+Removed: the generated About image and BUILD MODE badge, `// LABEL` eyebrows, purple accent words in headings, the animated canvas grid, the cursor halo, the scroll progress bar, the motion toggle, the demo-lab selector, demo filters, the stats strip, 01/02/03 proof cards, the skills card grid and ticker, the contact 01-03 list, and Space Grotesk (DM Sans only).
+
+Kept: every demo video link (Anime Pulse is the hero feature, the six others are in the Recent work grid), live Roblox stats, pricing tiers carried into the FormSubmit enquiry, FAQ, email and Discord copy, the mobile quote button, the Hits.sh view counter (now in the footer, labelled Site views) and the thank-you page.
+
+The previous files are backed up in .qa/before-simplify/. scripts/qa.cjs, motion-qa.cjs and scroll-qa.cjs still test the removed selector, filters and motion controls, so they need updating before they are run again. Checked in Chromium at 1280px and 375px: no horizontal overflow, one h1, mobile menu with Escape, pricing scope prefill, live stats via RoProxy. Not yet published to gh-pages.
