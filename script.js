@@ -95,22 +95,6 @@ document.querySelectorAll("[data-roblox-experience]").forEach(async (card) => {
 
 document.querySelector("[data-current-year]").textContent = new Date().getFullYear();
 
-// Carry the chosen price tier into the enquiry; never replace a written brief.
-const enquiryForm = document.querySelector(".contact-form");
-const scopeNote = document.querySelector("[data-selected-scope]");
-document.querySelectorAll("[data-scope]").forEach((link) => {
-  link.addEventListener("click", () => {
-    enquiryForm.elements.selectedScope.value = link.dataset.scope;
-    enquiryForm.elements.projectType.value = link.dataset.projectType;
-    scopeNote.textContent = `Starting point: ${link.dataset.scope}. You can change the project type below.`;
-    scopeNote.hidden = false;
-  });
-});
-enquiryForm.elements.projectType.addEventListener("change", () => {
-  enquiryForm.elements.selectedScope.value = "";
-  scopeNote.hidden = true;
-});
-
 // Mobile quote button: shown between the hero and the enquiry form only.
 const mobileQuote = document.querySelector(".mobile-quote");
 if ("IntersectionObserver" in window) {

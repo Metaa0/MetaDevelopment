@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/vendor/lenis-1.3.26/lenis.css" />
-    <link rel="stylesheet" href="styles.css?v=meta17" />
+    <link rel="stylesheet" href="styles.css?v=meta18" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -43,7 +43,7 @@
         <a href="#about">About</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
-        <a class="nav-cta" href="#contact">Get a quote</a>
+        <a class="nav-cta" href="#contact">Message me</a>
       </nav>
     </header>
 
@@ -56,7 +56,7 @@
           <h1>Your next Roblox feature, built to play.</h1>
           <p class="lede">I build combat, gameplay systems and interfaces for Roblox creators. From a couple of focused features to a connected game loop.</p>
           <div class="actions">
-            <a class="button button-primary" href="#contact">Get a project quote</a>
+            <a class="button button-primary" href="#contact">Message me on Discord</a>
             <a class="button button-plain" href="#work">See the work</a>
           </div>
           <p class="note">Projects from $600. Scope and price agreed before work starts.</p>
@@ -190,21 +190,21 @@
             <p class="price">$600<span>+</span></p>
             <p>Two small, clearly defined features for your existing game.</p>
             <ul class="includes"><li>Two features, scoped together</li><li>Integration and a testing pass</li><li>Handoff and setup notes</li></ul>
-            <a href="#contact" data-scope="Feature package" data-project-type="Gameplay system">Scope my features</a>
+            <a href="#contact">Scope my features</a>
           </article>
           <article class="featured">
             <h3>Systems build</h3>
             <p class="price">$1,500<span>+</span></p>
             <p>A complete mechanic with connected logic and interface states.</p>
             <ul class="includes"><li>System planning and build</li><li>Integration and testing milestones</li><li>Documentation for your team</li></ul>
-            <a href="#contact" data-scope="Systems build" data-project-type="Gameplay system">Get a systems quote</a>
+            <a href="#contact">Get a systems quote</a>
           </article>
           <article>
             <h3>Playable prototype</h3>
             <p class="price">$3,000<span>+</span></p>
             <p>A playable foundation with several systems built around one agreed core loop.</p>
             <ul class="includes"><li>Core loop and connected features</li><li>Milestone-based delivery</li><li>Testing, handoff and agreed support</li></ul>
-            <a href="#contact" data-scope="Playable prototype" data-project-type="Playable prototype">Plan my prototype</a>
+            <a href="#contact">Plan my prototype</a>
           </article>
         </div>
       </section>
@@ -221,27 +221,15 @@
       </section>
 
       <section class="contact" id="contact" aria-labelledby="contact-title">
-        <div class="wrap contact-grid">
-          <div class="contact-copy">
-            <h2 id="contact-title">Tell me what you want to build</h2>
-            <p>A rough idea is enough. I'll reply with any questions before we agree the deliverables, price and timeline.</p>
-            <dl class="contact-points">
-              <div><dt>Email</dt><dd><a href="mailto:samdolatshahi9@gmail.com">samdolatshahi9@gmail.com</a></dd></div>
-              <div><dt>Discord</dt><dd><button type="button" data-copy="notletriq">@notletriq <span>Copy</span></button></dd></div>
-            </dl>
+        <div class="wrap contact-simple">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Message me on Discord</h2>
+          <p>Tell me what you'd like built. A rough idea is enough to start, and we'll agree the scope, price and timeline before any work begins.</p>
+          <div class="discord-card">
+            <span class="discord-label">Discord</span>
+            <strong class="discord-handle">@notletriq</strong>
+            <button class="button button-primary" type="button" data-copy="notletriq">Copy username</button>
           </div>
-          <form class="contact-form" action="https://formsubmit.co/samdolatshahi9@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="New Meta Development project enquiry" /><input type="hidden" name="_template" value="table" /><input type="hidden" name="_captcha" value="false" /><input type="hidden" name="_next" value="https://metaa0.github.io/MetaDevelopment/thanks.html" />
-            <p class="selected-scope" data-selected-scope role="status" hidden></p>
-            <input type="hidden" name="selectedScope" value="" />
-            <div hidden aria-hidden="true"><label>Leave this empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label></div>
-            <div class="form-row"><label>Your name or handle<input type="text" name="name" autocomplete="name" required /></label><label>Email or Discord<input type="text" name="contact" placeholder="Where should I reply?" required /></label></div>
-            <div class="form-row"><label>Project type<select name="projectType"><option>Gameplay system</option><option>Bug fix or improvement</option><option>Combat or weapon system</option><option>UI / UX implementation</option><option>Tower defense system</option><option>Playable prototype</option><option>Other Roblox development</option></select></label><label>Budget<select name="budget"><option>Not sure yet</option><option>$600 – $1,499</option><option>$1,500 – $2,999</option><option>$3,000 – $4,999</option><option>$5,000+</option></select></label></div>
-            <label>What would you like built?<textarea name="brief" rows="5" placeholder="e.g. A tower placement system with upgrades and a mobile-friendly interface." required minlength="15"></textarea></label>
-            <div class="form-row"><label>Game or reference link <span class="optional">(optional)</span><input type="url" name="gameLink" placeholder="https://" /></label><label>Deadline <span class="optional">(optional)</span><input type="text" name="deadline" placeholder="e.g. October, or flexible" /></label></div>
-            <button class="button button-primary" type="submit">Send project brief</button>
-            <p class="form-note">Sent via FormSubmit. Prefer email? <a href="mailto:samdolatshahi9@gmail.com">Email me directly</a>.</p>
-          </form>
         </div>
       </section>
     </main>
@@ -256,9 +244,9 @@
       </div>
     </footer>
 
-    <a class="mobile-quote" href="#contact">Get a project quote</a>
+    <a class="mobile-quote" href="#contact">Message me on Discord</a>
     <div class="copy-toast" data-copy-toast role="status" aria-live="polite"></div>
-    <script src="script.js?v=meta17"></script>
+    <script src="script.js?v=meta18"></script>
     <script src="assets/vendor/lenis-1.3.26/lenis.min.js"></script>
     <script src="motion.js?v=meta17"></script>
   </body>

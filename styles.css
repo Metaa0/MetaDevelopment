@@ -18,6 +18,7 @@
 html { scroll-padding-top: calc(var(--header) + 16px); }
 body { margin: 0; color: var(--ink); background: var(--bg); font-family: var(--font); font-size: 1.0625rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
 img { display: block; max-width: 100%; height: auto; }
+[hidden] { display: none !important; }
 a { color: inherit; }
 h1, h2, h3 { margin: 0; line-height: 1.1; letter-spacing: -.02em; text-wrap: balance; }
 h1 { font-size: clamp(2.4rem, 1.4rem + 3.6vw, 4.2rem); font-weight: 700; letter-spacing: -.035em; }
@@ -204,6 +205,14 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px
 .plans article { background: rgba(22, 22, 26, .6); transition: border-color .2s, transform .2s; }
 .plans article:hover { border-color: #3d3b46; }
 .plans .featured { border-color: rgba(187, 140, 255, .55); background: linear-gradient(180deg, rgba(187, 140, 255, .1), rgba(22, 22, 26, .7) 60%); box-shadow: 0 24px 70px -30px rgba(187, 140, 255, .5); }
+
+/* contact: Discord only */
+.contact-simple { display: grid; justify-items: center; gap: 14px; text-align: center; }
+.contact-simple > p:not(.eyebrow) { max-width: 52ch; color: var(--muted); }
+.contact-simple .eyebrow { margin-bottom: 0; color: var(--accent); }
+.discord-card { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 20px; margin-top: 18px; padding: 20px 24px; background: linear-gradient(135deg, rgba(187, 140, 255, .1), rgba(22, 22, 26, .9) 55%); border: 1px solid rgba(187, 140, 255, .35); border-radius: var(--radius-l); box-shadow: 0 24px 70px -30px rgba(187, 140, 255, .5); }
+.discord-label { color: var(--muted); font-size: .9rem; }
+.discord-handle { font-size: clamp(1.4rem, 1.1rem + 1vw, 1.9rem); letter-spacing: -.02em; }
 
 /* thank-you page */
 .thanks { display: grid; align-content: center; justify-items: start; gap: 20px; min-height: 100vh; min-height: 100svh; padding-block: 48px; }
