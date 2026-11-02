@@ -111,3 +111,32 @@ Removed: the generated About image and BUILD MODE badge, `// LABEL` eyebrows, pu
 Kept: every demo video link (Anime Pulse is the hero feature, the six others are in the Recent work grid), live Roblox stats, pricing tiers carried into the FormSubmit enquiry, FAQ, email and Discord copy, the mobile quote button, the Hits.sh view counter (now in the footer, labelled Site views) and the thank-you page.
 
 The previous files are backed up in .qa/before-simplify/. scripts/qa.cjs, motion-qa.cjs and scroll-qa.cjs still test the removed selector, filters and motion controls, so they need updating before they are run again. Checked in Chromium at 1280px and 375px: no horizontal overflow, one h1, mobile menu with Escape, pricing scope prefill, live stats via RoProxy. Not yet published to gh-pages.
+
+## Code / Animation / Build restructure (24 October 2026)
+
+The owner asked for separate sections for coding, animation and building, with fluff and unneeded animation removed. Rewrote index.html, styles.css and script.js; deleted motion.js (canvas background and Lenis smooth scrolling). Previous files are in .qa/before-restructure/.
+
+Structure: hero with a three-way index (Code, Animation, Build) → Code (Anime Pulse feature, six system videos, live hoverboard game stats) → Animation → Build → Rates (four-row list, including "Animation or build work: Quote") → Discord contact → footer view counter. Removed the about pillars, process timeline, pulsing status pill, hero facts, hover zoom, flash, floating mobile quote button and glow shadows. Header CTA moves into the mobile menu below 480px.
+
+Animation and Build show a short "being added, ask on Discord" note until real work exists; copy-paste templates for YouTube, local MP4 and screenshots are HTML comments above each section. assets/vendor/lenis-1.3.26 is now unused. Checked in Edge via Playwright at 320, 390 and 1440px: no horizontal overflow, one h1, mobile menu Escape returns focus, live stats via RoProxy. Not published.
+
+## New channel videos and fuller layout (2 November 2026)
+
+All six videos now point to the new portfolio channel (Tower Defense System, Golden Empire Framework, Hoverboard Obby Framework, Combat System, Gun Systems, Keyboard ASMR System). Gun Systems replaces the separate Sniper and AK videos. Every video was checked with YouTube oEmbed (it allows embedding) and its thumbnail URL returned 200.
+
+The owner said the page had too much empty space and pointed to haqtanefe.dev as a reference for how much content to show. They also asked for a curved game-card carousel like the one on the Kuzu Gaming site. Only the section types and density were borrowed. No copy, code, images or branding were taken from either site.
+
+The new structure is: a split hero with an example Luau code panel → a curved showcase strip → a stat strip → Selected work (featured video plus a 3×2 grid, with the live hoverboard game as the sixth tile) → What I build (six areas, each linked to its demo, plus tool chips and compact Animation/Build panels; the `#animation` and `#build` anchors still work) → How a project runs → rate cards → FAQ → contact with a "helpful to include" list. JetBrains Mono is used only for code.
+
+The arc carousel uses `requestAnimationFrame` at 36px/s. The track is translated, and each card is rotated with `rotateY` and scaled according to its distance from the centre. Cards are cloned to fill two viewport widths, and the clones are `aria-hidden` and untabbable. The carousel pauses on hover or focus, when it is off-screen, when the tab is hidden, and from the Pause button. With reduced motion it keeps the curve but does not move, and the button is hidden.
+
+Each Roblox game is now fetched once and the result is shared by every card that shows it.
+
+Copy is limited to facts already on the site: the rates, the process from the old rates note, the bug-fix promise and the Discord handle. The FAQ answers use only those facts. There is no reviews section. An HTML comment template is ready for real client reviews.
+
+Checks run in headless Edge through Playwright at 320, 390 and 1440px:
+- no horizontal overflow and one h1;
+- carousel motion, hover pause and the reduced-motion static state;
+- no page errors.
+
+The direct games.roblox.com request is blocked by CORS on localhost, so the RoProxy fallback is used, as before. Previous files are saved in the session scratchpad only. The changes are not published to gh-pages.
